@@ -6,7 +6,9 @@ package turrificapp;
 
 /**
  *
- * @author markymark1346
+ * @author mmilutinovic1313
+ * @author 
+ * @author 
  */
 public class TurrificApp {
 
