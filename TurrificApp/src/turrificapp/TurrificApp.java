@@ -7,8 +7,8 @@ package turrificapp;
 /**
  *
  * @author natashabhave
- * @author 
- * @author 
+ * @author mmilutinovic1313
+ * @author bkaulius
  */
 public class TurrificApp {
 
