@@ -8,7 +8,7 @@ package turrificapp;
  *
  * @author markymark1346
  */
-public class TurrificApp {
+public class TurrificApp { //main Game class
 
     /**
      * @param args the command line arguments
