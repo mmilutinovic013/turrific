@@ -14,8 +14,12 @@ import java.awt.Rectangle;
 public class Desk {
     private int xCoordinate;
     private int yCoordinate;
-    Image icon;
-    Rectangle bound;
+    private Image icon;
+    private Rectangle bound;
     private boolean objectPlaced;
     
+    
+    public void placeWeapon(){
+        
+    }
 }
