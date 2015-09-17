@@ -6,9 +6,9 @@ package turrificapp;
 
 /**
  *
+ * @author natashabhave
  * @author mmilutinovic1313
  * @author bkaulius
- * @author 
  */
 public class TurrificApp { //main Game class
 
