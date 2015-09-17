@@ -18,6 +18,5 @@ public class TurrificApp {
     public static void main(String[] args) {
         // TODO code application logic here
         // This is a test for the 300th time
-        // This is a new commit
     }
 }
