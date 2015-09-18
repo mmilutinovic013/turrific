@@ -5,6 +5,8 @@
  */
 package turrificapp;
 
+import java.awt.Rectangle;
+
 /**
  *
  * @author bkaul_000
@@ -17,9 +19,9 @@ public class Enemy {
     private int speed;
     private int damage;
     private boolean visible;
-    //bounds:rectangle
+    private Rectangle bounds;
     
-    public Enemy(int startHealth, int startXCoordinate, int startYCoordinate, int startSpeed, int startDamage, boolean startVisible){
+    public Enemy(int startHealth, int startXCoordinate, int startYCoordinate, int startSpeed, int startDamage, boolean startVisible /*bounds:rectangle*/){
         
         health = startHealth;
         xCoordinate = startXCoordinate;

@@ -5,6 +5,9 @@
  */
 package turrificapp;
 
+import java.awt.Image;
+import java.awt.Rectangle;
+
 /**
  *
  * @author bkaul_000
@@ -12,9 +15,9 @@ package turrificapp;
 public class Projectile {
     
     private int attack;
-    //icon:image
+    private Image icon;
     private int speed;
-    //bound:rectangle
+    private Rectangle bound;
     private int xCoordinate;
     private int yCoordinate;
     
