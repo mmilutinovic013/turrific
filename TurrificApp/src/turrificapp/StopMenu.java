@@ -14,4 +14,8 @@ public class StopMenu {
     private JButton quit;
     private JButton mainMenu;
     private JButton resume;
+    
+    public void goToMenu(){
+        //creates startMenu
+    }
 }
