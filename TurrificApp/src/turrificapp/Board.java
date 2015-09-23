@@ -36,9 +36,8 @@ public class Board extends JFrame {
         weaponSelect = new JButton[0]; // Weapon 0 is the default? 
         userInformation = new JLabel("User Information");
         endzone = new Rectangle(60,60);
-        
-        levelSetup(desks, mainMenu, pauseMenu, enemies, user, startWave, weaponSelect, userInformation, endzone);
-        
+            
+        display();
     }
     
     public Board(Desk newDesks[][], Enemy newEnemies[], JLabel newUserInformation){
@@ -48,10 +47,6 @@ public class Board extends JFrame {
         desks = newDesks;
         enemies = newEnemies;
         userInformation = newUserInformation;
-        //
-        // Sets up the board and level by calling level setup.
-        //
-        levelSetup(desks, mainMenu, pauseMenu, enemies, user, startWave, weaponSelect, userInformation, endzone);
         
     }
     
@@ -59,12 +54,11 @@ public class Board extends JFrame {
         
     }
     
-    private void levelSetup(Desk newdesks[][], StartMenu newStartMenu, StopMenu newStopMenu, Enemy newEnemies[], User newUser, JButton newStartWave, JButton newWeaponSelect[], JLabel newUserInformation, Rectangle newEndzone){
-        
-    }
-    
     public void display(){
+        // Display the setup board...
         
+        display();
+
     }
     
     public void update(){
