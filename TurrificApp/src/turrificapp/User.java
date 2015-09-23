@@ -14,4 +14,8 @@ public class User {
     private int money;
     private int health;
   
+    public User(){
+        name = "defaut";
+    }
+    // TODO: We probably need something to get the name from the set string in the name entry form...
 }
