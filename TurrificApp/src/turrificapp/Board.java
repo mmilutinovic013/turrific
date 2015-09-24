@@ -22,7 +22,7 @@ public class Board extends JFrame {
     private Enemy enemies[];
     private User user;
     private JButton startWave;
-    private JButton weaponSelect[];
+    private JButton weaponSelect[]; // need to create 3 default weapons in the class...
     private JLabel userInformation;
     private Rectangle endzone;
     
@@ -36,7 +36,7 @@ public class Board extends JFrame {
         weaponSelect = new JButton[0]; // Weapon 0 is the default? 
         userInformation = new JLabel("User Information");
         endzone = new Rectangle(60,60);
-            
+ 
         display();
     }
     
@@ -48,17 +48,22 @@ public class Board extends JFrame {
         enemies = newEnemies;
         userInformation = newUserInformation;
         
+        display();
     }
     
     public void actionPerformed(ActionEvent evt){
-        
+        //
+        // Updates the current map when an action is performed...
+        //
+        update();
     }
     
     public void display(){
-        // Display the setup board...
+        //
+        // This initialized the display...this occurs on start and whenever the game updates.
+        // This will depend on get and set methods from things...
+        //
         
-        display();
-
     }
     
     public void update(){
