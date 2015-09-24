@@ -64,6 +64,7 @@ public class Board extends JFrame {
         // This will depend on get and set methods from things...
         //
         
+        
     }
     
     public void update(){

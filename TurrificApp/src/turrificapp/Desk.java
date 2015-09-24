@@ -21,6 +21,23 @@ public class Desk {
     public Desk(){
         
     }
+    
+    public int getDeskX(){
+        return xCoordinate;
+    }
+    
+    public int getDeskY(){
+        return yCoordinate;
+    }
+    
+    public void setDeskX(int newDeskX){
+        xCoordinate = newDeskX;
+    }
+    
+    public void setDeskY(int newDeskY){
+        yCoordinate = newDeskY;
+    }
+    
     public void placeWeapon(){
         
     }
