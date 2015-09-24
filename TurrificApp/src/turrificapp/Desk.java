@@ -18,7 +18,9 @@ public class Desk {
     private Rectangle bound;
     private boolean objectPlaced;
     
-    
+    public Desk(){
+        
+    }
     public void placeWeapon(){
         
     }
