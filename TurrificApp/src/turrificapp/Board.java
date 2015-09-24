@@ -24,7 +24,6 @@ public class Board extends JFrame {
     private JButton startWave;
     private JButton weaponSelect[]; // need to create 3 default weapons in the class...
     private JLabel userInformation;
-    private Rectangle endzone;
     
     public Board(){
         desks = new Desk [10][10];
@@ -35,7 +34,6 @@ public class Board extends JFrame {
         startWave = new JButton("Start Wave");
         weaponSelect = new JButton[0]; // Weapon 0 is the default? 
         userInformation = new JLabel("User Information");
-        endzone = new Rectangle(60,60);
  
         display();
     }

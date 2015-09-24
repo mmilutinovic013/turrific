@@ -17,7 +17,6 @@ public class Projectile {
     private int attack;
     private Image icon;
     private int speed;
-    private Rectangle bound;
     private int xCoordinate;
     private int yCoordinate;
     

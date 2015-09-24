@@ -17,9 +17,11 @@ public class Desk implements Collidables{
     private Image icon;
     private Rectangle bound;
     private boolean objectPlaced;
+    private Rectangle endzone;
+
     
     public Desk(){
-        
+        endzone = new Rectangle(60,60);
     }
     
     public int getDeskX(){
@@ -45,6 +47,7 @@ public class Desk implements Collidables{
     @Override
     public void checkBounds(Desk d, Enemy e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
