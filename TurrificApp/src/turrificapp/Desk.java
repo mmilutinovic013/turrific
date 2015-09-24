@@ -54,9 +54,5 @@ public class Desk implements Collidables{
     public void checkBounds(Projectile p, Enemy e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void checkBounds(Rectangle endzone, Enemy e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
