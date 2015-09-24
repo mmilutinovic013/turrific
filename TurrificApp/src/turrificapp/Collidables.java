@@ -6,9 +6,12 @@
 package turrificapp;
 
 /**
- *
+     *
  * @author bkaul_000
  */
-public class Collidables {
+public interface Collidables {
     
+    void checkBounds(Desk d, Enemy e);
+    void checkBounds(Projectile p, Enemy e);
 }
+    

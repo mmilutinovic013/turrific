@@ -62,6 +62,7 @@ public class Board extends JFrame {
         //
         // This initialized the display...this occurs on start and whenever the game updates.
         // This will depend on get and set methods from things...
+        // If not path then desk...?
         //
         
         

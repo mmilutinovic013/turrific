@@ -11,7 +11,7 @@ import java.awt.Rectangle;
  *
  * @author markymark1346
  */
-public class Desk {
+public class Desk implements Collidables{
     private int xCoordinate;
     private int yCoordinate;
     private Image icon;
@@ -40,5 +40,20 @@ public class Desk {
     
     public void placeWeapon(){
         
+    }
+
+    @Override
+    public void checkBounds(Desk d, Enemy e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void checkBounds(Projectile p, Enemy e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void checkBounds(Rectangle endzone, Enemy e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
