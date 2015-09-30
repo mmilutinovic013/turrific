@@ -4,6 +4,7 @@
  */
 package turrificapp;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.*;
 import javax.swing.*;
@@ -15,6 +16,7 @@ import javax.swing.*;
 public class Board extends JFrame {
     
     //TODO: We need Desk and Enemy before we can do Board
+    // GridLayout? 
     // Push
     private Desk desks[][];
     private StartMenu mainMenu;
@@ -25,7 +27,23 @@ public class Board extends JFrame {
     private JButton weaponSelect[]; // need to create 3 default weapons in the class...
     private JLabel userInformation;
     
+    
     public Board(){
+        
+        super("Board JFrame");
+        this.setSize(800, 600);
+        
+        JPanel gameboardPanel = new JPanel();
+        JPanel sidebarPanel = new JPanel();
+        
+        gameboardPanel.setSize(600, 600);
+        gameboardPanel.setBackground(Color.red); // This will be changed to the image...
+        
+        sidebarPanel.setSize(200, 800);
+        sidebarPanel.setBackground(Color.gray);
+        
+        this.add(gameboardPanel);
+        this.add(sidebarPanel);
         desks = new Desk [10][10];
         mainMenu = new StartMenu();
         pauseMenu = new StopMenu();
