@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 public class Board extends JFrame {
     
-    //TODO: We need Desk and Enemy before we can do Board
+    //TODO: We need Desk and Enemy baefore we can do Board
     // GridLayout? 
     // Push
     private Desk desks[][];

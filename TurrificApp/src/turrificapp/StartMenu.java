@@ -10,7 +10,7 @@ import javax.swing.*;
  *
  * @author markymark1346
  */
-public class StartMenu {
+public class StartMenu extends JFrame {
     private JButton easy;
     private JButton medium;
     private JButton hard;
@@ -19,6 +19,10 @@ public class StartMenu {
     private JLabel highScore;
     private JLabel instructions;
 
+    public StartMenu(){
+        
+    }
+    
     public void loadScores(){
         
     }
