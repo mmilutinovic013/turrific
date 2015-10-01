@@ -11,13 +11,18 @@ import javax.swing.*;
  *
  * @author markymark1346
  */
-public class StopMenu  {
+public class StopMenu extends JPanel implements ActionListener  {
     private JButton quit;
     private JButton mainMenu;
     private JButton resume;
     
     StopMenu(){
         super();
+        quit = new JButton("Quit");
+        mainMenu = new JButton("Main Menu");
+        this.add(quit);
+        this.add(mainMenu);
+        this.add(resume);
     }
     
     public void goToMenu(){

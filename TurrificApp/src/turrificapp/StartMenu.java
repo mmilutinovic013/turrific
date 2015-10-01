@@ -12,7 +12,7 @@ import javax.swing.*;
  *
  * @author markymark1346
  */
-public class StartMenu extends JFrame implements ActionListener {
+public class StartMenu extends JPanel implements ActionListener {
     private JButton easy;
     private JButton medium;
     private JButton hard;
