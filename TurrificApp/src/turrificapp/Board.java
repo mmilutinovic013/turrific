@@ -46,7 +46,6 @@ public class Board extends JFrame {
         
         this.setVisible(true);
         desks = new Desk [10][10];
-        mainMenu = new StartMenu();
         pauseMenu = new StopMenu();
         enemies = new Enemy[10]; // verify that this is correct...
         user = new User();
