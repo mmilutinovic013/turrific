@@ -19,7 +19,6 @@ public class Board extends JFrame {
     // GridLayout? 
     // Push
     private Desk desks[][];
-    private StartMenu mainMenu; // do we need this?
     private StopMenu pauseMenu;
     private Enemy enemies[];
     private User user;
