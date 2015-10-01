@@ -19,18 +19,24 @@ public class Board extends JFrame {
     // GridLayout? 
     // Push
     private Desk desks[][];
-    private StopMenu pauseMenu;
     private Enemy enemies[];
     private User user;
     private JButton startWave;
     private JButton weaponSelect[]; // need to create 3 default weapons in the class...
     private JLabel userInformation;
+    private StartMenu mainMenu;
+    private StopMenu pauseMenu;
     
     
     public Board(){
         
         super("Board JFrame");
         this.setSize(800, 600);
+        
+        mainMenu = new StartMenu();
+        this.setVisible(false);
+        pauseMenu = new StopMenu();
+        
         
         JPanel gameboardPanel = new JPanel();
         JPanel sidebarPanel = new JPanel();
