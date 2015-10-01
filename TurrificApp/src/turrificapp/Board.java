@@ -19,7 +19,7 @@ public class Board extends JFrame {
     // GridLayout? 
     // Push
     private Desk desks[][];
-    private StartMenu mainMenu;
+    private StartMenu mainMenu; // do we need this?
     private StopMenu pauseMenu;
     private Enemy enemies[];
     private User user;
@@ -44,6 +44,8 @@ public class Board extends JFrame {
         
         this.add(gameboardPanel);
         this.add(sidebarPanel);
+        
+        this.setVisible(true);
         desks = new Desk [10][10];
         mainMenu = new StartMenu();
         pauseMenu = new StopMenu();
