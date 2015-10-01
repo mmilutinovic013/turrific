@@ -4,6 +4,8 @@
  */
 package turrificapp;
 
+import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -19,6 +21,10 @@ public class StopMenu extends JPanel implements ActionListener  {
     
     StopMenu(){
         super();
+        this.setSize(800, 600);
+        this.setBackground(Color.blue);
+        this.setLayout(new FlowLayout());
+        
         quit = new JButton("Quit");
         mainMenu = new JButton("Main Menu");
         resume = new JButton("resume");
