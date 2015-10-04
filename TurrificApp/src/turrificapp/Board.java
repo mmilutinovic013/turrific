@@ -63,17 +63,18 @@ public class Board extends JFrame implements ActionListener {
         JPanel sidebarPanel = new JPanel();
         
         gameboardPanel.setSize(600, 600);
+        gameboardPanel.setLayout(new BorderLayout());
         gameboardPanel.setBackground(Color.red); // This will be changed to the image...
-        gameboardPanel.add(pauseMenu);
+        gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
-        sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
-        sidebarPanel.add(startWave);
+        //sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
+        sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
         
         
-        this.add(gameboardPanel, BorderLayout.LINE_START);
+        this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
 
         this.setVisible(true);
@@ -94,10 +95,9 @@ public class Board extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent evt){
         Object obj = evt.getSource();
-        System.out.print(obj.toString());
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
-            System.out.println("here");
+            
         }
         //
         // Updates the current map when an action is performed...

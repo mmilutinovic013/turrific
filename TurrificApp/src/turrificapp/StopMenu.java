@@ -21,7 +21,7 @@ public class StopMenu extends JPanel implements ActionListener  {
     
     StopMenu(){
         super();
-        this.setSize(800, 600);
+        this.setSize(600, 600);
         this.setBackground(Color.blue);
         this.setLayout(new FlowLayout());
         
