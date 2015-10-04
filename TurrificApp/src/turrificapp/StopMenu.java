@@ -32,6 +32,7 @@ public class StopMenu extends JPanel implements ActionListener  {
         this.add(quit);
         this.add(mainMenu);
         this.add(resume);
+        this.setVisible(true);
     }
     
     public void goToMenu(){ // This is literally actionPerformed

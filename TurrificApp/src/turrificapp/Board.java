@@ -23,8 +23,8 @@ public class Board extends JFrame implements ActionListener {
     private Desk desks[][];
     private Enemy enemies[];
     private User user;
-    private JButton startWave;
-    private JButton weaponSelect[]; // need to create 3 default weapons in the class...
+    private JButton startWaveButton;
+    private JButton weaponSelectButton[]; // need to create 3 default weapons in the class...
     private JLabel userInformation;
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
@@ -44,11 +44,19 @@ public class Board extends JFrame implements ActionListener {
         pauseMenu.setVisible(false);
         
         pauseMenuButton = new JButton("Pause");
+        pauseMenuButton.addActionListener(this);
+        
+        startWaveButton = new JButton("Start Wave");
+        startWaveButton.addActionListener(this);
+        
+        
+        weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
+        //weaponSelectButton.addActionListener(this); Figure this shit out...
+        
         desks = new Desk [10][10];
         enemies = new Enemy[10]; // verify that this is correct...
         user = new User();
-        startWave = new JButton("Start Wave");
-        weaponSelect = new JButton[0]; // Weapon 0 is the default? 
+       
         userInformation = new JLabel("User Information");
         
         JPanel gameboardPanel = new JPanel();
@@ -56,6 +64,7 @@ public class Board extends JFrame implements ActionListener {
         
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setBackground(Color.red); // This will be changed to the image...
+        gameboardPanel.add(pauseMenu);
         
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
@@ -63,8 +72,9 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(startWave);
         sidebarPanel.add(pauseMenuButton);
         
-        this.add(gameboardPanel);
-        this.add(sidebarPanel);
+        
+        this.add(gameboardPanel, BorderLayout.LINE_START);
+        this.add(sidebarPanel, BorderLayout.LINE_END);
 
         this.setVisible(true);
 
@@ -84,8 +94,10 @@ public class Board extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent evt){
         Object obj = evt.getSource();
+        System.out.print(obj.toString());
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
+            System.out.println("here");
         }
         //
         // Updates the current map when an action is performed...
