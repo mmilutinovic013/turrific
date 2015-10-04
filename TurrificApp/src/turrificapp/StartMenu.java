@@ -21,8 +21,11 @@ public class StartMenu extends JPanel implements ActionListener {
     private JTextField nameInput;
     private JLabel highScore;
     private JLabel instructions;
+    private Board theBoard;
 
-    public StartMenu(){
+    public StartMenu(Board gameBoard){
+        super();
+        theBoard = gameBoard;
         this.setLayout(null);
         this.setSize(800, 600);
         

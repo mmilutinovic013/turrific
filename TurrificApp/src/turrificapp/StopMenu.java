@@ -15,23 +15,28 @@ import javax.swing.*;
  * @author markymark1346
  */
 public class StopMenu extends JPanel implements ActionListener  {
-    private JButton quit;
-    private JButton mainMenu;
-    private JButton resume;
+    private JButton quitButton;
+    private JButton mainMenuButton;
+    private JButton resumeButton;
+    private Board theBoard;
     
-    StopMenu(){
+    StopMenu(Board gameBoard){
         super();
+        theBoard = gameBoard; 
         this.setSize(600, 600);
         this.setBackground(Color.blue);
         this.setLayout(new FlowLayout());
         
-        quit = new JButton("Quit");
-        mainMenu = new JButton("Main Menu");
-        resume = new JButton("resume");
+        quitButton = new JButton("Quit");
+        quitButton.addActionListener(this);
+        mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.addActionListener(this);
+        resumeButton = new JButton("resume");
+        resumeButton.addActionListener(this);
         
-        this.add(quit);
-        this.add(mainMenu);
-        this.add(resume);
+        this.add(quitButton);
+        this.add(mainMenuButton);
+        this.add(resumeButton);
         this.setVisible(true);
     }
     
@@ -43,17 +48,17 @@ public class StopMenu extends JPanel implements ActionListener  {
     public void actionPerformed(ActionEvent evt) {
         Object obj = evt.getSource();
         
-        if(obj == quit){
+        if(obj == quitButton){
             System.exit(0);
         }
-        if(obj == mainMenu){
+        if(obj == mainMenuButton){
             // go back to the panel that does that main menu stuff
-            StartMenu theMenu = new StartMenu();
-            this.remove(this);
+            this.setVisible(false);
+            theBoard.getStartMenu().setVisible(true); // We have to figure this out...
         }
-        if(obj == resume){
+        if(obj == resumeButton){
             // remove the frame 
-            this.remove(this);
+            this.setVisible(false);
         }
     }
     

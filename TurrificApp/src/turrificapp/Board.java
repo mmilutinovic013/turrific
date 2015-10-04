@@ -37,10 +37,10 @@ public class Board extends JFrame implements ActionListener {
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         
-        mainMenu = new StartMenu();
+        mainMenu = new StartMenu(this);
         mainMenu.setVisible(false);
         
-        pauseMenu = new StopMenu();
+        pauseMenu = new StopMenu(this);
         pauseMenu.setVisible(false);
         
         pauseMenuButton = new JButton("Pause");
@@ -66,6 +66,7 @@ public class Board extends JFrame implements ActionListener {
         gameboardPanel.setLayout(new BorderLayout());
         gameboardPanel.setBackground(Color.red); // This will be changed to the image...
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
+        gameboardPanel.add(mainMenu, BorderLayout.CENTER);
         
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
@@ -91,6 +92,14 @@ public class Board extends JFrame implements ActionListener {
         userInformation = newUserInformation;
         
         display();
+    }
+    
+    public StartMenu getStartMenu(){ // add sets?
+        return mainMenu;
+    }
+    
+    public StopMenu getStopMenu(){ // add sets?
+        return pauseMenu;
     }
     
     public void actionPerformed(ActionEvent evt){
