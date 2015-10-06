@@ -26,7 +26,6 @@ public class StartMenu extends JPanel implements ActionListener {
     public StartMenu(Board gameBoard){
         super();
         theBoard = gameBoard;
-        this.setLayout(null);
         this.setSize(800, 600);
         
         easyButton = new JButton("Easy");
@@ -86,8 +85,23 @@ public class StartMenu extends JPanel implements ActionListener {
         Object obj = evt.getSource(); 
         
         if(obj == startButton){
-            Board boardy = new Board();
+            // get difficulty
+            theBoard.dispose();
+            Board boardy = new Board();// Board has difficulty passed in? 
         }
+        if(obj == easyButton){
+            //Update Difficulty
+            System.out.println("easy");
+        }
+        if(obj == mediumButton){
+            //Update Difficulty
+            System.out.println("medium");
+        }
+        if(obj == hardButton){
+            //Update Difficulty
+            System.out.println("hard");
+        }
+        
     }
     
     
