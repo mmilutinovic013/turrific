@@ -14,10 +14,10 @@ import java.awt.*;
  * @author markymark1346
  */
 public class StartMenu extends JPanel implements ActionListener {
-    private JButton easy;
-    private JButton medium;
-    private JButton hard;
-    private JButton start;
+    private JButton easyButton;
+    private JButton mediumButton;
+    private JButton hardButton;
+    private JButton startButton;
     private JTextField nameInput;
     private JLabel highScore;
     private JLabel instructions;
@@ -29,30 +29,30 @@ public class StartMenu extends JPanel implements ActionListener {
         this.setLayout(null);
         this.setSize(800, 600);
         
-        easy = new JButton("Easy");
-        easy.setBounds(100, 500, 100, 50);
-        easy.setBackground(Color.white);
-        easy.setForeground(Color.black);
+        easyButton = new JButton("Easy");
+        easyButton.setBounds(100, 500, 100, 50);
+        easyButton.setBackground(Color.white);
+        easyButton.setForeground(Color.black);
         
-        easy.addActionListener(this);
+        easyButton.addActionListener(this);
         
-        medium = new JButton("Medium");
-        medium.setBounds(100, 400, 100, 50);
-        medium.setBackground(Color.white);
-        medium.setForeground(Color.black);
-        medium.addActionListener(this);
+        mediumButton = new JButton("Medium");
+        mediumButton.setBounds(100, 400, 100, 50);
+        mediumButton.setBackground(Color.white);
+        mediumButton.setForeground(Color.black);
+        mediumButton.addActionListener(this);
         
-        hard = new JButton("Hard");
-        hard.setBounds(100, 300, 100, 50);
-        hard.setBackground(Color.white);
-        hard.setForeground(Color.black);
-        hard.addActionListener(this);
+        hardButton = new JButton("Hard");
+        hardButton.setBounds(100, 300, 100, 50);
+        hardButton.setBackground(Color.white);
+        hardButton.setForeground(Color.black);
+        hardButton.addActionListener(this);
         
-        start = new JButton("Start");
-        start.setBounds(100, 200, 100, 50);
-        start.setBackground(Color.white);
-        start.setForeground(Color.black);
-        start.addActionListener(this);
+        startButton = new JButton("Start");
+        startButton.setBounds(100, 200, 100, 50);
+        startButton.setBackground(Color.white);
+        startButton.setForeground(Color.black);
+        startButton.addActionListener(this);
         
         nameInput = new JTextField("type in your name");
         nameInput.setBounds(200, 500, 100, 50);
@@ -63,10 +63,10 @@ public class StartMenu extends JPanel implements ActionListener {
         instructions = new JLabel("Purchase and place turrets on the board using availabe funds and don't let enemies cross the endzone! Each wave will end when all the enemies have been destroyed or cross the endzone (accompanied with health loss). The game will terminate when your health reaches zero!");
         instructions.setBounds(300, 500, 100, 300);
         
-        this.add(easy);
-        this.add(medium);
-        this.add(hard);
-        this.add(start);
+        this.add(easyButton);
+        this.add(mediumButton);
+        this.add(hardButton);
+        this.add(startButton);
         this.add(nameInput);
         this.add(highScore);
         this.add(instructions);
@@ -85,7 +85,7 @@ public class StartMenu extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent evt){
         Object obj = evt.getSource(); 
         
-        if(obj == start){
+        if(obj == startButton){
             Board boardy = new Board();
         }
     }
