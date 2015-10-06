@@ -59,7 +59,7 @@ public class StartMenu extends JPanel implements ActionListener {
         
         highScore = new JLabel("high score");
         highScore.setBounds(200, 400, 100, 50);
-        
+            
         instructions = new JLabel("Purchase and place turrets on the board using availabe funds and don't let enemies cross the endzone! Each wave will end when all the enemies have been destroyed or cross the endzone (accompanied with health loss). The game will terminate when your health reaches zero!");
         instructions.setBounds(300, 500, 100, 300);
         
