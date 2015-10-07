@@ -6,6 +6,7 @@
 package turrificapp;
 
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Enemy {
     private int speed;
     private int damage;
     private boolean visible;
+    private ImageIcon icon;
     private Rectangle bounds;
     
     public Enemy(int startHealth, int startXCoordinate, int startYCoordinate, int startSpeed, int startDamage, boolean startVisible /*bounds:rectangle*/){
@@ -28,7 +30,8 @@ public class Enemy {
         yCoordinate = startYCoordinate;
         speed = startSpeed;
         damage = startDamage;
-        visible = startVisible;   
+        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\enemy.png");
+        visible = startVisible;  
     }
     /*
     public void setHealth(){

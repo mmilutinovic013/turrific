@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 /**
  *
@@ -20,6 +21,7 @@ public class StartMenu extends JPanel implements ActionListener {
     private JButton startButton;
     private JTextField nameInput;
     private JLabel highScore;
+    private JTextArea scoreList;
     private JLabel instructions;
     private Board theBoard;
 
@@ -58,6 +60,15 @@ public class StartMenu extends JPanel implements ActionListener {
         
         highScore = new JLabel("high score");
         highScore.setBounds(200, 400, 100, 50);
+        scoreList = new JTextArea(5, 2);
+        try{
+            FileReader fr = new FileReader("scores.txt");
+            BufferedReader br = new BufferedReader(fr);
+            scoreList.read(br, "scoreList");
+        }
+        catch(IOException ioe){
+            //error handling
+        }
             
         instructions = new JLabel("Purchase and place turrets on the board using availabe funds and don't let enemies cross the endzone! Each wave will end when all the enemies have been destroyed or cross the endzone (accompanied with health loss). The game will terminate when your health reaches zero!");
         instructions.setBounds(300, 500, 100, 300);

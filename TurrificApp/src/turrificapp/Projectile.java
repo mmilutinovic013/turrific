@@ -23,7 +23,7 @@ public class Projectile {
     public Projectile(int startAttack, /*icon,*/ int startSpeed, /*bound,*/ int startXCoordinate, int startYCoordinate){
         
         attack = startAttack;
-        //icon
+        //Image icon = new Image();
         speed = startSpeed;
         //bound
         xCoordinate = startXCoordinate;

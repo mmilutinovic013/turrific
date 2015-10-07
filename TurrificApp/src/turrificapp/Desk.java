@@ -4,7 +4,7 @@
  */
 package turrificapp;
 
-import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.awt.Rectangle;
 
 /**
@@ -14,13 +14,14 @@ import java.awt.Rectangle;
 public class Desk implements Collidables{
     private int xCoordinate;
     private int yCoordinate;
-    private Image icon;
+    private ImageIcon icon;
     private Rectangle bound;
     private boolean objectPlaced;
     private Rectangle endzone;
 
     
     public Desk(){
+        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\desk.png");
         endzone = new Rectangle(60,60);
     }
     

@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Board extends JFrame implements ActionListener {
     //TODO: We need Desk and Enemy baefore we can do Board
     // GridLayout? 
     // Push
+    private JLabel background;
     private Desk desks[][];
     private Enemy enemies[];
     private User user;
@@ -67,6 +69,13 @@ public class Board extends JFrame implements ActionListener {
         gameboardPanel.setBackground(Color.red); // This will be changed to the image...
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
+        
+        //complicated to set JPanel backgorund to image without making own class so...
+        JLabel background = new JLabel();
+        background.setSize(600, 600);
+        background.setLayout(new FlowLayout(FlowLayout.LEFT));
+        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\board.png"); 
+        background.setIcon(icon);
         
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);

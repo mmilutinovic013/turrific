@@ -5,7 +5,7 @@
  */
 package turrificapp;
 
-import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Weapon {
     private String weaponName;
     private int weaponCost;
     private int weaponRange;
-    private Image icon;
+    private ImageIcon icon;
     private boolean weaponSelected;
     
     public Weapon(String name, int cost, int range, /*icon:image*/ boolean selected){
@@ -25,6 +25,11 @@ public class Weapon {
         weaponCost = cost;
         weaponRange = range;
         weaponSelected = selected;
+        
+        //Weapon stats
+        //Pencil: Range 3, Damage 3, Cost 15
+        //Stapler: Range 1, Damge 5, Cost 20
+        //RubberBand: Range 5, Damage 1, Cost 10
     }
     
     public void fire(){
