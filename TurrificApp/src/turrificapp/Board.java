@@ -74,7 +74,7 @@ public class Board extends JFrame implements ActionListener {
         JLabel background = new JLabel();
         background.setSize(600, 600);
         background.setLayout(new FlowLayout(FlowLayout.LEFT));
-        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\board.png"); 
+        ImageIcon icon = new ImageIcon("board.png"); 
         background.setIcon(icon);
         
         sidebarPanel.setSize(200, 800);
