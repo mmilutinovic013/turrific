@@ -17,7 +17,7 @@ public class Board extends JFrame implements ActionListener {
     //TODO: We need Desk and Enemy baefore we can do Board
     // GridLayout? 
     // Push
-    private JLabel background;
+    private JLabel map;
     private Desk desks[][];
     private Enemy enemies[];
     private User user;
@@ -59,7 +59,10 @@ public class Board extends JFrame implements ActionListener {
         
         JPanel gameboardPanel = new JPanel();
         JPanel sidebarPanel = new JPanel();
-        //JLabel background = new JLabel(new ImageIcon("images/board.png"));
+
+        map = new JLabel(new ImageIcon("images/board.png"));
+        map.setLayout(new BorderLayout());
+        gameboardPanel.add(map);
         
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
@@ -73,16 +76,12 @@ public class Board extends JFrame implements ActionListener {
         //sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
-        
-        background = new JLabel(new ImageIcon("images/board.png"));
-        background.setLayout(new BorderLayout());
-        gameboardPanel.add(background);
 
-        JLabel label = new JLabel("I'm on fire");
-        label.setFont(label.getFont().deriveFont(Font.BOLD, 48));
-        label.setForeground(Color.WHITE);
-        label.setHorizontalAlignment(JLabel.CENTER);
-        background.add(label);
+        // JLabel label = new JLabel("I'm on fire");
+        // label.setFont(label.getFont().deriveFont(Font.BOLD, 48));
+        // label.setForeground(Color.WHITE);
+        // label.setHorizontalAlignment(JLabel.CENTER);
+        // background.add(label);
 
         
         
