@@ -4,13 +4,9 @@
  */
 package turrificapp;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -33,7 +29,7 @@ public class Board extends JFrame implements ActionListener {
     private JButton pauseMenuButton;
     
     
-    public Board(){
+    public Board() {
         
         super("Board JFrame");
         this.setSize(800, 600);
@@ -63,20 +59,16 @@ public class Board extends JFrame implements ActionListener {
         
         JPanel gameboardPanel = new JPanel();
         JPanel sidebarPanel = new JPanel();
-        
+        JLabel background = new JLabel(new ImageIcon("images/board.png"));
+        background.setVisible(true);
+
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
-        gameboardPanel.setBackground(Color.red); // This will be changed to the image...
+        //gameboardPanel.setBackground(Color.red); // This will be changed to the image...
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
         
         //complicated to set JPanel backgorund to image without making own class so...
-        JLabel background = new JLabel();
-        background.setSize(600, 600);
-        background.setLayout(new FlowLayout(FlowLayout.LEFT));
-        ImageIcon icon = new ImageIcon("board.png"); 
-        background.setIcon(icon);
-        
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
         //sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
@@ -84,8 +76,9 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(pauseMenuButton);
         
         
-        this.add(gameboardPanel, BorderLayout.CENTER);
+        //this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
+        this.add(background, BorderLayout.CENTER);
 
         this.setVisible(true);
 
