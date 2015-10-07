@@ -61,6 +61,7 @@ public class Board extends JFrame implements ActionListener {
         JPanel sidebarPanel = new JPanel();
         JLabel background = new JLabel(new ImageIcon("images/board.png"));
         background.setVisible(true);
+        gameboardPanel.setFocusable(false);
 
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
@@ -76,7 +77,7 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(pauseMenuButton);
         
         
-        //this.add(gameboardPanel, BorderLayout.CENTER);
+        this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
         this.add(background, BorderLayout.CENTER);
 
