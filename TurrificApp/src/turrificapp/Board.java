@@ -34,6 +34,8 @@ public class Board extends JFrame implements ActionListener {
         super("Board JFrame");
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
+        JPanel gameboardPanel = new JPanel();
+        JPanel sidebarPanel = new JPanel();
         
         mainMenu = new StartMenu(this);
         mainMenu.setVisible(false);
@@ -57,40 +59,26 @@ public class Board extends JFrame implements ActionListener {
        
         userInformation = new JLabel("User Information");
         
-        JPanel gameboardPanel = new JPanel();
-        JPanel sidebarPanel = new JPanel();
+
 
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new BorderLayout());
-        gameboardPanel.add(map);
         
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
-        //gameboardPanel.setBackground(Color.red); // This will be changed to the image...
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
-        
+        gameboardPanel.add(map);
         //complicated to set JPanel backgorund to image without making own class so...
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
-        //sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
 
-        // JLabel label = new JLabel("I'm on fire");
-        // label.setFont(label.getFont().deriveFont(Font.BOLD, 48));
-        // label.setForeground(Color.WHITE);
-        // label.setHorizontalAlignment(JLabel.CENTER);
-        // background.add(label);
-
-        
-        
         this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
-
+        
         this.setVisible(true);
-
-        display();
     }
     
     public Board(Desk newDesks[][], Enemy newEnemies[], JLabel newUserInformation){
