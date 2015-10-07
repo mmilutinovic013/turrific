@@ -59,10 +59,8 @@ public class Board extends JFrame implements ActionListener {
         
         JPanel gameboardPanel = new JPanel();
         JPanel sidebarPanel = new JPanel();
-        JLabel background = new JLabel(new ImageIcon("images/board.png"));
-        background.setVisible(true);
-        gameboardPanel.setFocusable(false);
-
+        //JLabel background = new JLabel(new ImageIcon("images/board.png"));
+        
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
         //gameboardPanel.setBackground(Color.red); // This will be changed to the image...
@@ -76,10 +74,20 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
         
+        background = new JLabel(new ImageIcon("images/board.png"));
+        background.setLayout(new BorderLayout());
+        gameboardPanel.add(background);
+
+        JLabel label = new JLabel("I'm on fire");
+        label.setFont(label.getFont().deriveFont(Font.BOLD, 48));
+        label.setForeground(Color.WHITE);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        background.add(label);
+
+        
         
         this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
-        this.add(background, BorderLayout.CENTER);
 
         this.setVisible(true);
 
