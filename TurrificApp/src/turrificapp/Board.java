@@ -74,9 +74,17 @@ public class Board extends JFrame implements ActionListener {
 
         for(int i = 0; i < boardSize; i++){
             for(int j = 0; j < boardSize; j++){
-                desk = new Desk(i,j); 
-                JLabel deskImage = desk.deskImageSetup();
-                map.add(deskImage);
+                if((i == 3 && j == 3) || (i == 3 && j == 4)|| (i == 3 && j == 5)|| (i == 3 && j == 6)|| (i == 3 && j == 7)|| (i == 3 && j == 8)|| (i == 3 && j == 9)|| (i == 3 && j == 10)|| (i == 4 && j == 3)|| (i == 5 && j == 3)|| (i == 5 && j == 4)|| (i == 5 && j == 5)|| (i == 5 && j == 6)|| (i == 6 && j == 6)|| (i == 7 && j == 3)|| (i == 7 && j == 4)|| (i == 7 && j == 5)|| (i == 7 && j == 6)|| (i == 8 && j == 3)|| (i == 9 && j == 3)|| (i == 10 && j == 3)){
+                    // Do nothing and sob because this if block is ugly
+                    map.add(new JLabel());
+                    
+                }
+                else{
+                    desk = new Desk(i,j); 
+                    JLabel deskImage = desk.deskImageSetup();
+                    map.add(deskImage); 
+                }
+                
             }
         }
         
