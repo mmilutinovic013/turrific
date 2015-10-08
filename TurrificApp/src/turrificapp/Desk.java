@@ -27,7 +27,6 @@ public class Desk implements Collidables{
         yCoordinate = y;
         ImageIcon icon = new ImageIcon("images/desk.png");
         deskImage = new JLabel(new ImageIcon("images/desk.png"));
-        deskImage.setLayout(new BorderLayout());
         endzone = new Rectangle(60,60);
     }
     

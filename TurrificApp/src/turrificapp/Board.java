@@ -59,7 +59,7 @@ public class Board extends JFrame implements ActionListener {
         userInformation = new JLabel("User Information");
 
         map = new JLabel(new ImageIcon("images/board.png"));
-        map.setLayout(new GridLayout());
+        map.setLayout(new GridLayout(10,10));
         
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
