@@ -29,40 +29,42 @@ public class StartMenu extends JPanel implements ActionListener {
         super();
         theBoard = gameBoard;
         this.setSize(800, 600);
+        this.setLayout(null);
         
         easyButton = new JButton("Easy");
-        easyButton.setBounds(100, 500, 100, 50);
+        easyButton.setBounds(100, 50, 100, 50);
         easyButton.setBackground(Color.white);
         easyButton.setForeground(Color.black);
-        
         easyButton.addActionListener(this);
         
         mediumButton = new JButton("Medium");
-        mediumButton.setBounds(100, 400, 100, 50);
+        mediumButton.setBounds(100, 100, 100, 50);
         mediumButton.setBackground(Color.white);
         mediumButton.setForeground(Color.black);
         mediumButton.addActionListener(this);
         
         hardButton = new JButton("Hard");
-        hardButton.setBounds(100, 300, 100, 50);
+        hardButton.setBounds(100, 150, 100, 50);
         hardButton.setBackground(Color.white);
         hardButton.setForeground(Color.black);
         hardButton.addActionListener(this);
         
         startButton = new JButton("Start");
-        startButton.setBounds(100, 200, 100, 50);
+        startButton.setBounds(400, 100, 100, 50);
         startButton.setBackground(Color.white);
         startButton.setForeground(Color.black);
         startButton.addActionListener(this);
         
         nameInput = new JTextField("type in your name");
-        nameInput.setBounds(200, 500, 100, 50);
+        nameInput.setBounds(75, 300, 150, 50);
         
         highScore = new JLabel("high score");
-        highScore.setBounds(200, 400, 100, 50);
+        highScore.setBounds(425, 300, 100, 50);
+        
         scoreList = new JTextArea(5, 2);
+        scoreList.setVisible(true);
         try{
-            FileReader fr = new FileReader("scores.txt");
+            FileReader fr = new FileReader("images/scores.txt");
             BufferedReader br = new BufferedReader(fr);
             scoreList.read(br, "scoreList");
         }
@@ -80,6 +82,7 @@ public class StartMenu extends JPanel implements ActionListener {
         this.add(nameInput);
         this.add(highScore);
         this.add(instructions);
+        this.add(scoreList);
         
         this.setVisible(true);
     }

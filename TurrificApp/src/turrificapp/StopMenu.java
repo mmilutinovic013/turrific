@@ -24,7 +24,7 @@ public class StopMenu extends JPanel implements ActionListener  {
         super();
         theBoard = gameBoard; 
         this.setSize(600, 600);
-        this.setBackground(Color.blue);
+        this.setBackground(Color.white);
         this.setLayout(new FlowLayout());
         
         quitButton = new JButton("Quit");

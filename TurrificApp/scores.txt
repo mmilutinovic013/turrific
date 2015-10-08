@@ -1,5 +1,0 @@
-such 100
-score 88
-much 12
-test 999
-wow 3
