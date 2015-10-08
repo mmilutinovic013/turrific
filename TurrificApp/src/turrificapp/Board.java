@@ -18,7 +18,7 @@ public class Board extends JFrame implements ActionListener {
     // GridLayout? 
     // Push
     private JLabel map;
-    private Desk desks[][];
+    private Desk desk;
     private Enemy enemies[];
     private User user;
     private JButton startWaveButton;
@@ -27,6 +27,7 @@ public class Board extends JFrame implements ActionListener {
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
     private JButton pauseMenuButton;
+    int boardSize = 10;
     
     
     public Board() {
@@ -52,27 +53,33 @@ public class Board extends JFrame implements ActionListener {
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
         //weaponSelectButton.addActionListener(this); Figure this shit out...
-        
-        desks = new Desk [10][10];
         enemies = new Enemy[10]; // verify that this is correct...
         user = new User();
        
         userInformation = new JLabel("User Information");
 
         map = new JLabel(new ImageIcon("images/board.png"));
-        map.setLayout(new BorderLayout());
+        map.setLayout(new GridLayout());
         
         gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
-        gameboardPanel.add(map);
-        //complicated to set JPanel backgorund to image without making own class so...
+        gameboardPanel.add(map, BorderLayout.CENTER);
+
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
 
+        for(int i = 0; i < boardSize; i++){
+            for(int j = 0; j < boardSize; j++){
+                desk = new Desk(i,j); 
+                JLabel deskImage = desk.deskImageSetup();
+                map.add(deskImage);
+            }
+        }
+        
         this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
         
@@ -80,11 +87,11 @@ public class Board extends JFrame implements ActionListener {
         this.setVisible(true);
     }
     
-    public Board(Desk newDesks[][], Enemy newEnemies[], JLabel newUserInformation){
+    public Board(Desk newDesk, Enemy newEnemies[], JLabel newUserInformation){
         //
         // Populates the passed in values to the fields
         //
-        desks = newDesks;
+        desk = newDesk;
         enemies = newEnemies;
         userInformation = newUserInformation;
         

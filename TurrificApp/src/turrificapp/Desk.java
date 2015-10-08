@@ -4,8 +4,10 @@
  */
 package turrificapp;
 
+import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import java.awt.Rectangle;
+import javax.swing.JLabel;
 
 /**
  *
@@ -18,10 +20,14 @@ public class Desk implements Collidables{
     private Rectangle bound;
     private boolean objectPlaced;
     private Rectangle endzone;
-
+    private JLabel deskImage;
     
-    public Desk(){
+    public Desk(int x, int y){
+        xCoordinate = x;
+        yCoordinate = y;
         ImageIcon icon = new ImageIcon("images/desk.png");
+        deskImage = new JLabel(new ImageIcon("images/desk.png"));
+        deskImage.setLayout(new BorderLayout());
         endzone = new Rectangle(60,60);
     }
     
@@ -43,6 +49,10 @@ public class Desk implements Collidables{
     
     public void placeWeapon(){
         
+    }
+    
+    public JLabel deskImageSetup(){
+        return deskImage;
     }
 
     @Override
