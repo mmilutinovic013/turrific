@@ -58,8 +58,6 @@ public class Board extends JFrame implements ActionListener {
         user = new User();
        
         userInformation = new JLabel("User Information");
-        
-
 
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new BorderLayout());
@@ -78,6 +76,7 @@ public class Board extends JFrame implements ActionListener {
         this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
         
+        this.setResizable(false);
         this.setVisible(true);
     }
     
