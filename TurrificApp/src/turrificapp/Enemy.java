@@ -30,7 +30,7 @@ public class Enemy {
         yCoordinate = startYCoordinate;
         speed = startSpeed;
         damage = startDamage;
-        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\enemy.png");
+        ImageIcon icon = new ImageIcon("images/enemy.png");
         visible = startVisible;  
     }
     /*

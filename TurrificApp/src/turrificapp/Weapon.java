@@ -16,20 +16,57 @@ public class Weapon {
     private String weaponName;
     private int weaponCost;
     private int weaponRange;
+    private int weaponDamage;
     private ImageIcon icon;
     private boolean weaponSelected;
     
-    public Weapon(String name, int cost, int range, /*icon:image*/ boolean selected){
-        
-        weaponName = name;
-        weaponCost = cost;
-        weaponRange = range;
-        weaponSelected = selected;
+    public Weapon(int choice/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
         
         //Weapon stats
-        //Pencil: Range 3, Damage 3, Cost 15
-        //Stapler: Range 1, Damge 5, Cost 20
-        //RubberBand: Range 5, Damage 1, Cost 10
+        //Pencil(1): Range 3, Damage 3, Cost 15
+        //Stapler(2): Range 1, Damge 5, Cost 20
+        //RubberBand(3): Range 5, Damage 1, Cost 10
+        /*int[] weaponArray;
+        weaponArray = new int[12];
+        weaponArray[0] = 1;
+        weaponArray[1] = 3;
+        weaponArray[2] = 3;
+        weaponArray[3] = 15;
+        weaponArray[4] = 2;
+        weaponArray[5] = 1;
+        weaponArray[6] = 5;
+        weaponArray[7] = 20;
+        weaponArray[8] = 3;
+        weaponArray[9] = 5;
+        weaponArray[10] = 1;
+        weaponArray[11] = 10;*/
+        
+        if(choice == 1){
+            weaponName = "Pencil";
+            weaponCost = 15;
+            weaponRange = 3;
+            weaponDamage = 3;
+            weaponSelected = true;
+            icon = new ImageIcon("images/pencil.png");
+        }
+        else if(choice == 2){
+            weaponName = "Stapler";
+            weaponCost = 20;
+            weaponRange = 1;
+            weaponDamage = 5;
+            weaponSelected = true;
+            icon = new ImageIcon("images/stapler.png");
+        }
+        else if(choice == 3){
+            weaponName = "RubberBand";
+            weaponCost = 10;
+            weaponRange = 5;
+            weaponDamage = 1;
+            weaponSelected = true;
+            icon = new ImageIcon("images/hornet.png");
+        }
+        
+        
     }
     
     public void fire(){

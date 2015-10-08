@@ -5,7 +5,7 @@
  */
 package turrificapp;
 
-import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.awt.Rectangle;
 
 /**
@@ -15,7 +15,7 @@ import java.awt.Rectangle;
 public class Projectile {
     
     private int attack;
-    private Image icon;
+    private ImageIcon icon;
     private int speed;
     private int xCoordinate;
     private int yCoordinate;
@@ -23,7 +23,7 @@ public class Projectile {
     public Projectile(int startAttack, /*icon,*/ int startSpeed, /*bound,*/ int startXCoordinate, int startYCoordinate){
         
         attack = startAttack;
-        //Image icon = new Image();
+        ImageIcon icon = new ImageIcon("images/projectile.png");
         speed = startSpeed;
         //bound
         xCoordinate = startXCoordinate;

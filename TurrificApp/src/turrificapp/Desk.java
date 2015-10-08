@@ -21,7 +21,7 @@ public class Desk implements Collidables{
 
     
     public Desk(){
-        ImageIcon icon = new ImageIcon("..\\TurrificApp\\Images\\desk.png");
+        ImageIcon icon = new ImageIcon("images/desk.png");
         endzone = new Rectangle(60,60);
     }
     
