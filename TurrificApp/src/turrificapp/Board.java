@@ -27,6 +27,9 @@ public class Board extends JFrame implements ActionListener {
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
     private JButton pauseMenuButton;
+    private JLabel pencilWeaponImage; // better name? 
+    private JLabel staplerWeaponImage; // better name? 
+    private JLabel rubberbandWeaponImage; // better name? 
     int boardSize = 10;
     
     
@@ -60,17 +63,24 @@ public class Board extends JFrame implements ActionListener {
 
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new GridLayout(10,10));
+        pencilWeaponImage = new JLabel(new ImageIcon("images/pencil.png"));
+        staplerWeaponImage = new JLabel(new ImageIcon("images/stapler.png"));
+        rubberbandWeaponImage = new JLabel(new ImageIcon("images/rubberband.png"));
         
-        gameboardPanel.setSize(600, 600);
         gameboardPanel.setLayout(new BorderLayout());
+        gameboardPanel.setSize(600, 600);
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
         gameboardPanel.add(map, BorderLayout.CENTER);
 
+        sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(pauseMenuButton);
+        sidebarPanel.add(pencilWeaponImage);
+        sidebarPanel.add(staplerWeaponImage);
+        sidebarPanel.add(rubberbandWeaponImage);
 
         for(int i = 0; i < boardSize; i++){
             for(int j = 0; j < boardSize; j++){

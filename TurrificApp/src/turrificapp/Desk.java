@@ -47,6 +47,7 @@ public class Desk implements Collidables{
     }
     
     public void placeWeapon(){
+        // place Weapon based off weapon array... 
         
     }
     
