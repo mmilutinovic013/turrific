@@ -32,7 +32,7 @@ public class Board extends JFrame implements ActionListener {
     private JLabel rubberbandWeaponImage; // better name? 
     int boardSize = 10;
     
-    
+    // Someone fix this spacing -- I'm moving onto other things. This should be simple in just  layout change.
     public Board() {
         
         super("Board JFrame");
