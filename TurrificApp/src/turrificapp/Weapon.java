@@ -19,6 +19,8 @@ public class Weapon {
     private int weaponDamage;
     private ImageIcon icon;
     private boolean weaponSelected;
+    private int xCoordinate;
+    private int yCoordinate;
     
     public Weapon(int choice/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
         
@@ -68,9 +70,30 @@ public class Weapon {
         
         
     }
+    public String getWeaponName(){
+        return weaponName;
+    }
+    public int getWeaponCost(){
+        return weaponCost;
+    }
+    public int getWeaponRange(){
+        return weaponRange;
+    }
+    public int getWeaponDamage(){
+        return weaponDamage;
+    }
+    public boolean getWeaponSelected(){
+        return weaponSelected;
+    }
+    
     
     public void fire(){
         //creates projectile
+        int damage = getWeaponDamage(); 
+        int cost = getWeaponCost(); 
+        int range = getWeaponRange(); 
+        boolean selected = getWeaponSelected(); 
+        //Projectile projectile = new Projectile(damage, );
     }
     
 }

@@ -14,7 +14,7 @@ import java.awt.Rectangle;
  */
 public class Projectile {
     
-    private int attack;
+    private int attack; // is this the damage?
     private ImageIcon icon;
     private int speed;
     private int xCoordinate;
