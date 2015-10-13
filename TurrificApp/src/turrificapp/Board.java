@@ -49,9 +49,11 @@ public class Board extends JFrame implements ActionListener {
         
         pauseMenuButton = new JButton("Pause");
         pauseMenuButton.addActionListener(this);
+        pauseMenuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         startWaveButton = new JButton("Start Wave");
         startWaveButton.addActionListener(this);
+        startWaveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
@@ -64,8 +66,11 @@ public class Board extends JFrame implements ActionListener {
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new GridLayout(10,10));
         pencilWeaponImage = new JLabel(new ImageIcon("images/pencil.png"));
+        pencilWeaponImage.setAlignmentX(Component.CENTER_ALIGNMENT);
         staplerWeaponImage = new JLabel(new ImageIcon("images/stapler.png"));
+        staplerWeaponImage.setAlignmentX(Component.CENTER_ALIGNMENT);
         rubberbandWeaponImage = new JLabel(new ImageIcon("images/rubberband.png"));
+        rubberbandWeaponImage.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         gameboardPanel.setLayout(new BorderLayout());
         gameboardPanel.setSize(600, 600);
@@ -77,9 +82,13 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
         sidebarPanel.add(startWaveButton);
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pauseMenuButton);
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,200)));
         sidebarPanel.add(pencilWeaponImage);
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(staplerWeaponImage);
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(rubberbandWeaponImage);
 
         for(int i = 0; i < boardSize; i++){

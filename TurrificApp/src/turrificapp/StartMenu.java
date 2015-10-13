@@ -22,7 +22,7 @@ public class StartMenu extends JPanel implements ActionListener {
     private JTextField nameInput;
     private JLabel highScore;
     private JTextArea scoreList;
-    private JLabel instructions;
+    private JTextArea instructions;
     private Board theBoard;
 
     public StartMenu(Board gameBoard){
@@ -32,36 +32,37 @@ public class StartMenu extends JPanel implements ActionListener {
         this.setLayout(null);
         
         easyButton = new JButton("Easy");
-        easyButton.setBounds(100, 50, 100, 50);
+        easyButton.setBounds(150, 50, 100, 50);
         easyButton.setBackground(Color.white);
         easyButton.setForeground(Color.black);
         easyButton.addActionListener(this);
         
         mediumButton = new JButton("Medium");
-        mediumButton.setBounds(100, 100, 100, 50);
+        mediumButton.setBounds(150, 100, 100, 50);
         mediumButton.setBackground(Color.white);
         mediumButton.setForeground(Color.black);
         mediumButton.addActionListener(this);
         
         hardButton = new JButton("Hard");
-        hardButton.setBounds(100, 150, 100, 50);
+        hardButton.setBounds(150, 150, 100, 50);
         hardButton.setBackground(Color.white);
         hardButton.setForeground(Color.black);
         hardButton.addActionListener(this);
         
         startButton = new JButton("Start");
-        startButton.setBounds(400, 100, 100, 50);
+        startButton.setBounds(450, 100, 100, 50);
         startButton.setBackground(Color.white);
         startButton.setForeground(Color.black);
         startButton.addActionListener(this);
         
         nameInput = new JTextField("type in your name");
-        nameInput.setBounds(75, 300, 150, 50);
+        nameInput.setBounds(425, 250, 150, 50);
         
         highScore = new JLabel("high score");
-        highScore.setBounds(425, 300, 100, 50);
+        highScore.setBounds(475, 300, 100, 50);
         
-        scoreList = new JTextArea(5, 2);
+        scoreList = new JTextArea();
+        scoreList.setBounds(425, 350, 150, 150);
         scoreList.setVisible(true);
         try{
             FileReader fr = new FileReader("images/scores.txt");
@@ -72,8 +73,10 @@ public class StartMenu extends JPanel implements ActionListener {
             //error handling
         }
             
-        instructions = new JLabel("Purchase and place turrets on the board using availabe funds and don't let enemies cross the endzone! Each wave will end when all the enemies have been destroyed or cross the endzone (accompanied with health loss). The game will terminate when your health reaches zero!");
-        instructions.setBounds(300, 500, 100, 300);
+        instructions = new JTextArea("Purchase and place turrets on the board using availabe funds and don't let enemies cross the endzone! Each wave will end when all the enemies have been destroyed or cross the endzone (accompanied with health loss). The game will terminate when your health reaches zero!");
+        instructions.setBounds(75, 350, 250, 150);
+        instructions.setLineWrap(true);
+        instructions.setWrapStyleWord(true);
         
         this.add(easyButton);
         this.add(mediumButton);
