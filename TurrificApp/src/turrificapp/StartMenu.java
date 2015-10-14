@@ -64,6 +64,7 @@ public class StartMenu extends JPanel implements ActionListener {
         scoreList = new JTextArea();
         scoreList.setBounds(425, 350, 150, 150);
         scoreList.setVisible(true);
+        scoreList.setEditable(false);
         try{
             FileReader fr = new FileReader("images/scores.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -77,6 +78,7 @@ public class StartMenu extends JPanel implements ActionListener {
         instructions.setBounds(75, 350, 250, 150);
         instructions.setLineWrap(true);
         instructions.setWrapStyleWord(true);
+        instructions.setEditable(false);
         
         this.add(easyButton);
         this.add(mediumButton);
