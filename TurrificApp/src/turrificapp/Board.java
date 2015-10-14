@@ -122,6 +122,7 @@ public class Board extends JFrame implements ActionListener {
                     desk = new Desk(i,j); 
                     JLabel deskImage = desk.deskImageSetup();
                     JButton test = new JButton();
+                    test.addActionListener(this);
                     map.add(test);
                     test.add(deskImage);
                 }
@@ -159,6 +160,9 @@ public class Board extends JFrame implements ActionListener {
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
             
+        }
+        else{
+            System.out.println("ham");
         }
         //
         // Updates the current map when an action is performed...
