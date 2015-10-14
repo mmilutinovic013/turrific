@@ -39,8 +39,8 @@ public class Board extends JFrame implements ActionListener {
     private JButton[] deskLayoutArray = new JButton[81]; 
     private JButton currentLayoutButton;
     private Timer t1;
-    int x =0;
-    int y =0;
+    int x =190;
+    int y =500;
     JLabel enemyImage;
 
     int boardSize = 10;
@@ -71,7 +71,7 @@ public class Board extends JFrame implements ActionListener {
         t1 = new Timer(1000, this);
         enemy = new Enemy();
         enemyImage = enemy.getEnemyImage();
-        enemyImage.setBounds(new Rectangle(100,100,20,20));
+        enemyImage.setBounds(new Rectangle(x,y,100,100));
         gameboardPanel.add(enemyImage);
         
         
@@ -139,10 +139,10 @@ public class Board extends JFrame implements ActionListener {
                 else{
                     desk = new Desk(i,j); 
                     JLabel deskImage = desk.deskImageSetup();
-                    JButton test = new JButton();
+                    JButton test = new JButton(""+i +"," + j);
                     map.add(test);
                     test.addActionListener(this);
-                    test.add(deskImage); // set test coords
+                    //test.add(deskImage); // set test coords
                     // Get the JButton that was selected
                     // 
                 }
@@ -183,10 +183,10 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
         }
         else if(obj == t1){
-            x = x +20;
-            y = y+20;
+            
+            y = y - 10;
             System.out.println("here");
-            enemyImage.setBounds(new Rectangle(x,y,20,20));
+            enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
         }
         else{
