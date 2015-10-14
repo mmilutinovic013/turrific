@@ -38,6 +38,9 @@ public class Board extends JFrame implements ActionListener {
     private JPanel sidebarPanel;
     private JButton[] deskLayoutArray = new JButton[81]; 
     private JButton currentLayoutButton;
+    private Timer t1;
+    int x =0;
+    int y =0;
 
     int boardSize = 10;
     
@@ -45,6 +48,7 @@ public class Board extends JFrame implements ActionListener {
     public Board() {
         
         super("Board JFrame");
+        t1 = new Timer(1000, this);
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         gameboardPanel = new JPanel();
@@ -63,6 +67,12 @@ public class Board extends JFrame implements ActionListener {
         startWaveButton = new JButton("Start Wave");
         startWaveButton.addActionListener(this);
         startWaveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        
+        startWaveButton.setBounds(new Rectangle(100,100,20,20));
+        
+        
+        
         
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
@@ -166,6 +176,16 @@ public class Board extends JFrame implements ActionListener {
         Object obj = evt.getSource();
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
+        }
+        else if(obj == startWaveButton){
+            t1.start();
+        }
+        else if(obj == t1){
+            x = x +20;
+            y = y+20;
+            
+            startWaveButton.setBounds(new Rectangle(x,y,20,20));
+            this.repaint();
         }
         else{
             JOptionPane optionPane = new JOptionPane();

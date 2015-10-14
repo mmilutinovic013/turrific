@@ -54,6 +54,10 @@ public class Enemy extends JPanel {
     public void setYCoordinate(){
         
     }
+    * 
+    * public JLabel getEnemyGraphic(){
+        return;
+    }
     
     public void getYCoordinate(){
         
@@ -63,6 +67,8 @@ public class Enemy extends JPanel {
     public void takeDamage(/*Projectile P*/){
         
     }
+    
+    
     
     public void move(){
         
