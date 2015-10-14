@@ -122,9 +122,10 @@ public class Board extends JFrame implements ActionListener {
                 else{
                     desk = new Desk(i,j); 
                     JLabel deskImage = desk.deskImageSetup();
-                    map.add(deskImage); 
+                    JButton test = new JButton();
+                    map.add(test);
+                    test.add(deskImage);
                 }
-                
             }
         }
         
