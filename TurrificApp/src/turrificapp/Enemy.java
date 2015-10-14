@@ -24,6 +24,16 @@ public class Enemy extends JPanel {
     private ImageIcon icon;
     private Rectangle bounds;
     
+    public Enemy(){
+        
+        health = 10;
+        xCoordinate = 0;
+        yCoordinate = 0;
+        speed = 20;
+        damage = 10;
+        icon = new ImageIcon("images/enemy.png");
+        visible = true;  
+    }
     public Enemy(int startHealth, int startXCoordinate, int startYCoordinate, int startSpeed, int startDamage, boolean startVisible /*bounds:rectangle*/){
         
         health = startHealth;
@@ -31,7 +41,7 @@ public class Enemy extends JPanel {
         yCoordinate = startYCoordinate;
         speed = startSpeed;
         damage = startDamage;
-        ImageIcon icon = new ImageIcon("images/enemy.png");
+        icon = new ImageIcon("images/enemy.png");
         visible = startVisible;  
     }
     /*
@@ -64,12 +74,14 @@ public class Enemy extends JPanel {
     }
     */ //Don't know if these methods are necessary
     
+    public JLabel getEnemyImage(){
+        return new JLabel(icon);
+    }
+    
     public void takeDamage(/*Projectile P*/){
         
     }
-    
-    
-    
+        
     public void move(){
         
     }
