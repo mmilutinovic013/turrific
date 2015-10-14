@@ -6,6 +6,9 @@ package turrificapp;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.*;
 
 /**
@@ -23,7 +26,7 @@ public class Board extends JFrame implements ActionListener {
     private User user;
     private JButton startWaveButton;
     private JButton weaponSelectButton[]; // need to create 3 default weapons in the class...
-    private JLabel userInformation;
+    private JTextArea userInformation;
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
     private JButton pauseMenuButton;
@@ -58,10 +61,25 @@ public class Board extends JFrame implements ActionListener {
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
         //weaponSelectButton.addActionListener(this); Figure this shit out...
-        enemies = new Enemy[10]; // verify that this is correct...
+        enemies = new Enemy[10]; // verify that this is correct... base this number off of difficulty
         user = new User();
        
-        userInformation = new JLabel("User Information");
+        //user information accessible through user.txt file, not sure if this is how you want to
+        //run it for the constantly updated userInfo on sidebarPanel. If not it can easily be changed
+        //to make it work just for saving and loading user profiles
+        userInformation = new JTextArea();//new JLabel("User Information");
+        userInformation.setSize(200, 100);
+        userInformation.setVisible(true);
+        userInformation.setEditable(false);
+        userInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
+        try{
+            FileReader fr = new FileReader("images/user.txt");
+            BufferedReader br = new BufferedReader(fr);
+            userInformation.read(br, "userInformation");
+        }
+        catch(IOException ioe){
+            //error handling
+        }
 
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new GridLayout(10,10));
@@ -84,7 +102,9 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pauseMenuButton);
-        sidebarPanel.add(Box.createRigidArea(new Dimension(0,200)));
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
+        sidebarPanel.add(userInformation);
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,30)));
         sidebarPanel.add(pencilWeaponImage);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(staplerWeaponImage);
@@ -114,7 +134,7 @@ public class Board extends JFrame implements ActionListener {
         this.setVisible(true);
     }
     
-    public Board(Desk newDesk, Enemy newEnemies[], JLabel newUserInformation){
+    public Board(Desk newDesk, Enemy newEnemies[], JTextArea newUserInformation){
         //
         // Populates the passed in values to the fields
         //
