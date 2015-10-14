@@ -164,6 +164,20 @@ public class Board extends JFrame implements ActionListener {
         }
         else{
             System.out.println("ham");
+            JOptionPane test = new JOptionPane();
+            test.setVisible(true);
+            Object[] options = {"Yes, please",
+                    "No, thanks",
+                    "No eggs, no ham!"};
+            int n = JOptionPane.showOptionDialog(this,
+                "Would you like some green eggs to go "
+                + "with that ham?",
+                "A Silly Question",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[2]);
         }
         //
         // Updates the current map when an action is performed...

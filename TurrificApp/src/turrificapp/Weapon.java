@@ -6,6 +6,7 @@
 package turrificapp;
 
 import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Weapon {
     private int weaponCost;
     private int weaponRange;
     private int weaponDamage;
-    private ImageIcon icon;
+    private JLabel icon;
     private boolean weaponSelected;
     private int xCoordinate;
     private int yCoordinate;
@@ -49,7 +50,7 @@ public class Weapon {
             weaponRange = 3;
             weaponDamage = 3;
             weaponSelected = true;
-            icon = new ImageIcon("images/pencil.png");
+            icon = new JLabel("images/pencil.png");
         }
         else if(choice == 2){
             weaponName = "Stapler";
@@ -57,7 +58,7 @@ public class Weapon {
             weaponRange = 1;
             weaponDamage = 5;
             weaponSelected = true;
-            icon = new ImageIcon("images/stapler.png");
+            icon = new JLabel("images/stapler.png");
         }
         else if(choice == 3){
             weaponName = "RubberBand";
@@ -65,7 +66,7 @@ public class Weapon {
             weaponRange = 5;
             weaponDamage = 1;
             weaponSelected = true;
-            icon = new ImageIcon("images/hornet.png");
+            icon = new JLabel("images/rubberband.png");
         }
         
         
@@ -84,6 +85,9 @@ public class Weapon {
     }
     public boolean getWeaponSelected(){
         return weaponSelected;
+    }
+    public JLabel getIcon(){
+        return icon;
     }
     
     
