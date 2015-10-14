@@ -70,6 +70,7 @@ public class Board extends JFrame implements ActionListener {
         userInformation = new JTextArea();//new JLabel("User Information");
         userInformation.setSize(200, 100);
         userInformation.setVisible(true);
+        userInformation.setBackground(Color.gray);
         userInformation.setEditable(false);
         userInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
         try{
@@ -102,9 +103,9 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(startWaveButton);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pauseMenuButton);
-        sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(userInformation);
-        sidebarPanel.add(Box.createRigidArea(new Dimension(0,30)));
+        sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pencilWeaponImage);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(staplerWeaponImage);
