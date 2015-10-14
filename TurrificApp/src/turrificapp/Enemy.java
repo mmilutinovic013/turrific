@@ -7,12 +7,13 @@ package turrificapp;
 
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /**
  *
  * @author bkaul_000
  */
-public class Enemy {
+public class Enemy extends JPanel {
     
     private int health;
     private int xCoordinate;

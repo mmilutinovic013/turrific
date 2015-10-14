@@ -9,6 +9,7 @@ import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -33,6 +34,11 @@ public class Board extends JFrame implements ActionListener {
     private JLabel pencilWeaponImage; // better name? 
     private JLabel staplerWeaponImage; // better name? 
     private JLabel rubberbandWeaponImage; // better name? 
+    private JPanel gameboardPanel;
+    private JPanel sidebarPanel;
+    private JButton[] deskLayoutArray = new JButton[81]; 
+    private JButton currentLayoutButton;
+
     int boardSize = 10;
     
     // Someone fix this spacing -- I'm moving onto other things. This should be simple in just  layout change.
@@ -41,8 +47,8 @@ public class Board extends JFrame implements ActionListener {
         super("Board JFrame");
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
-        JPanel gameboardPanel = new JPanel();
-        JPanel sidebarPanel = new JPanel();
+        gameboardPanel = new JPanel();
+        sidebarPanel = new JPanel();
         
         mainMenu = new StartMenu(this);
         mainMenu.setVisible(false);
@@ -117,19 +123,19 @@ public class Board extends JFrame implements ActionListener {
                 if((i == 3 && j == 3) || (i == 3 && j == 4)|| (i == 3 && j == 5)|| (i == 3 && j == 6)|| (i == 3 && j == 7)|| (i == 3 && j == 8)|| (i == 3 && j == 9)|| (i == 3 && j == 10)|| (i == 4 && j == 3)|| (i == 5 && j == 3)|| (i == 5 && j == 4)|| (i == 5 && j == 5)|| (i == 5 && j == 6)|| (i == 6 && j == 6)|| (i == 7 && j == 3)|| (i == 7 && j == 4)|| (i == 7 && j == 5)|| (i == 7 && j == 6)|| (i == 8 && j == 3)|| (i == 9 && j == 3)|| (i == 10 && j == 3)){
                     // Do nothing and sob because this if block is ugly
                     map.add(new JLabel()); // We add a fake JLabel so it skips a space...lol GridLayout
-                    
                 }
                 else{
                     desk = new Desk(i,j); 
                     JLabel deskImage = desk.deskImageSetup();
                     JButton test = new JButton();
-                    test.addActionListener(this);
                     map.add(test);
-                    test.add(deskImage);
+                    test.addActionListener(this);
+                    test.add(deskImage); // set test coords
+                    // Get the JButton that was selected
+                    // 
                 }
             }
         }
-        
         this.add(gameboardPanel, BorderLayout.CENTER);
         this.add(sidebarPanel, BorderLayout.LINE_END);
         
@@ -160,15 +166,10 @@ public class Board extends JFrame implements ActionListener {
         Object obj = evt.getSource();
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
-            
-        }
-        else if(obj == JOptionPane.CANCEL_OPTION){
-            System.out.println("cancel");
         }
         else{
-            System.out.println("ham");
-            JOptionPane test = new JOptionPane();
-            test.setVisible(true);
+            JOptionPane optionPane = new JOptionPane();
+            optionPane.setVisible(true);
             Object[] options = {"select pencil",
                     "select stapler",
                     "select rubberband"};
@@ -182,13 +183,21 @@ public class Board extends JFrame implements ActionListener {
                 
                 switch(selection){
                     case 0:
-                        System.out.println("zero");
+                        System.out.println(((JButton)evt.getSource()).toString());
+                        //JLabel image = pencilWeaponImage;
+                        ((JButton)evt.getSource()).add(new JLabel(new ImageIcon("images/pencil.png")));
+                        ///map.add(pencilWeaponImage);
                         break;
                     case 1:
+                        JLabel image1 = new JLabel(new ImageIcon("images/pencil.png"));
                         System.out.println("one");
+                        ((JButton)evt.getSource()).add(image1);
+                        map.repaint();
                         break;
                     case 2:
+                        JLabel image2 = new JLabel(new ImageIcon("images/rubberband.png"));
                         System.out.println("two");
+                        map.repaint();
                         break;
                 }
         }
@@ -205,7 +214,14 @@ public class Board extends JFrame implements ActionListener {
         // If not path then desk...?
         //
         
-        
+    }
+    
+    public void setLayoutButton(JButton clickedJButton){
+        currentLayoutButton = clickedJButton;
+    }
+    
+    public JButton getLayoutButton(){
+        return currentLayoutButton;
     }
     
     public void update(){
