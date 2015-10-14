@@ -162,22 +162,27 @@ public class Board extends JFrame implements ActionListener {
             pauseMenu.setVisible(true);
             
         }
+        else if(obj == JOptionPane.CANCEL_OPTION){
+            System.out.println("cancel");
+        }
         else{
             System.out.println("ham");
             JOptionPane test = new JOptionPane();
+            int cancelInt = JOptionPane.CANCEL_OPTION;
             test.setVisible(true);
-            Object[] options = {((Object)pencilWeaponImage),
-                    pencilWeaponImage,
-                    "No eggs, no ham!"};
+            Object[] options = {"select pencil",
+                    "select stapler",
+                    "select rubberband"};
             int n = JOptionPane.showOptionDialog(this,
-                "Would you like some green eggs to go "
-                + "with that ham?",
-                "A Silly Question",
+                "Please Select your Turret",
+                "Turret Selection",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                options,
-                options[2]);
+                options, null);
+                System.out.println(JOptionPane.CANCEL_OPTION);
+                System.out.println(JOptionPane.NO_OPTION);
+                System.out.println(JOptionPane.YES_OPTION);
         }
         //
         // Updates the current map when an action is performed...
