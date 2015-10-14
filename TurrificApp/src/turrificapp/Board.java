@@ -166,8 +166,8 @@ public class Board extends JFrame implements ActionListener {
             System.out.println("ham");
             JOptionPane test = new JOptionPane();
             test.setVisible(true);
-            Object[] options = {"Yes, please",
-                    "No, thanks",
+            Object[] options = {((Object)pencilWeaponImage),
+                    pencilWeaponImage,
                     "No eggs, no ham!"};
             int n = JOptionPane.showOptionDialog(this,
                 "Would you like some green eggs to go "
