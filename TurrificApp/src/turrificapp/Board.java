@@ -68,7 +68,7 @@ public class Board extends JFrame implements ActionListener {
         startWaveButton.addActionListener(this);
         startWaveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         
-        t1 = new Timer(1000, this);
+        t1 = new Timer(100, this);
         enemy = new Enemy();
         enemyImage = enemy.getEnemyImage();
         enemyImage.setBounds(new Rectangle(x,y,100,100));
@@ -139,7 +139,7 @@ public class Board extends JFrame implements ActionListener {
                 else{
                     desk = new Desk(i,j); 
                     JLabel deskImage = desk.deskImageSetup();
-                    JButton test = new JButton(""+i +"," + j);
+                    JButton test = new JButton(""+ this.getX() +"," + this.getY());
                     map.add(test);
                     test.addActionListener(this);
                     //test.add(deskImage); // set test coords
@@ -183,8 +183,16 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
         }
         else if(obj == t1){
-            
-            y = y - 10;
+            if(enemyImage.getY() <= 500 && enemyImage.getY() > 400 && enemyImage.getX() == 190)
+                y = y - 10;
+                if(enemyImage.getY() <= 400 && enemyImage.getX() <= 400){
+                    y = y;
+                    x = x + 10;
+                    if(enemyImage.getY() <= 400 && enemyImage.getY() > 300 && enemyImage.getX() == 400){
+                    y = y - 10;
+                    x = x;
+                    }
+            }
             System.out.println("here");
             enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
