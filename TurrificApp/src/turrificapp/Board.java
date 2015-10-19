@@ -74,9 +74,6 @@ public class Board extends JFrame implements ActionListener {
         enemyImage.setBounds(new Rectangle(x,y,100,100));
         gameboardPanel.add(enemyImage);
         
-        
-        
-        
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
         //weaponSelectButton.addActionListener(this); Figure this shit out...
         //enemy = new Enemy[10]; // verify that this is correct... base this number off of difficulty
@@ -142,7 +139,7 @@ public class Board extends JFrame implements ActionListener {
                     JButton test = new JButton(""+ this.getX() +"," + this.getY());
                     map.add(test);
                     test.addActionListener(this);
-                    //test.add(deskImage); // set test coords
+                    test.add(deskImage); // set test coords
                     // Get the JButton that was selected
                     // 
                 }
@@ -183,15 +180,21 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
         }
         else if(obj == t1){
-            if(enemyImage.getY() <= 500 && enemyImage.getY() > 400 && enemyImage.getX() == 190)
+            if(enemyImage.getY() <= 500 && enemyImage.getY() > 400 && enemyImage.getX() == 190){
                 y = y - 10;
-                if(enemyImage.getY() <= 400 && enemyImage.getX() <= 400){
-                    y = y;
-                    x = x + 10;
-                    if(enemyImage.getY() <= 400 && enemyImage.getY() > 300 && enemyImage.getX() == 400){
-                    y = y - 10;
-                    x = x;
-                    }
+
+            }
+            if(enemyImage.getY() <= 400 && enemyImage.getX() <= 390){
+                y = y;
+                x = x + 10;
+            }
+            if(enemyImage.getY() <= 400 && enemyImage.getY() > 200 && enemyImage.getX() == 400){
+                y = y - 10;
+                x = x;
+            }
+            if(enemyImage.getY() <= 400 && enemyImage.getY() > 200 && enemyImage.getX() == 400){
+                y = y - 10;
+                x = x;
             }
             System.out.println("here");
             enemyImage.setBounds(new Rectangle(x,y,100,100));
