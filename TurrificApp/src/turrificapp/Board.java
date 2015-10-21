@@ -39,6 +39,7 @@ public class Board extends JFrame implements ActionListener {
     private JButton[] deskLayoutArray = new JButton[81]; 
     private JButton currentLayoutButton;
     private Timer t1;
+    private ArrayList <Weapon> weaponsArray;
     int x =190;
     int y =500;
     JLabel enemyImage;
@@ -73,6 +74,7 @@ public class Board extends JFrame implements ActionListener {
         enemyImage = enemy.getEnemyImage();
         enemyImage.setBounds(new Rectangle(x,y,100,100));
         gameboardPanel.add(enemyImage);
+        weaponsArray = new ArrayList();
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
         //weaponSelectButton.addActionListener(this); Figure this shit out...
@@ -181,6 +183,13 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
         }
         else if(obj == t1){
+            
+            if(weaponsArray.size() < 0){
+                for(int i = 0; i < weaponsArray.size(); i++){
+                    weaponsArray.get(i).fire();
+                }
+            }
+            
             if(enemyImage.getY() <= 500 && enemyImage.getY() > 385 && enemyImage.getX() == 190){
                 y = y - 10;
 
@@ -232,34 +241,40 @@ public class Board extends JFrame implements ActionListener {
                         if((user.getMoney() - 15) < 0){
                            break; 
                         }
+                        Weapon pencil = new Weapon(1, this);
                         ImageIcon image1 = new ImageIcon("images/pencil.png");
                         System.out.println("one");
                         ((JButton)evt.getSource()).setIcon(image1);
                         user.decreaseMoney(15);
                         System.out.println(user.getMoney());
                         map.repaint();
+                        weaponsArray.add(pencil);
                         break;
                     case 1:
                         if((user.getMoney() - 20) < 0){
                            break; 
                         }
+                        Weapon stapler = new Weapon(2, this);
                         ImageIcon image2 = new ImageIcon("images/stapler.png");
                         System.out.println("two");
                         ((JButton)evt.getSource()).setIcon(image2);
                         user.decreaseMoney(20);
                         System.out.println(user.getMoney());
                         map.repaint();
+                        weaponsArray.add(stapler);
                         break;
                     case 2:
                         if((user.getMoney() - 10) < 0){
                            break; 
                         }
+                        Weapon rubberband = new Weapon(3, this);
                         ImageIcon image3 = new ImageIcon("images/rubberband.png");
                         System.out.println("three");
                         ((JButton)evt.getSource()).setIcon(image3);
                         user.decreaseMoney(10);
                         System.out.println(user.getMoney());
                         map.repaint();
+                        weaponsArray.add(rubberband);
                         break;
                 }
         }
