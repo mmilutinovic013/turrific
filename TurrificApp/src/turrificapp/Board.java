@@ -180,21 +180,29 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
         }
         else if(obj == t1){
-            if(enemyImage.getY() <= 500 && enemyImage.getY() > 400 && enemyImage.getX() == 190){
+            if(enemyImage.getY() <= 500 && enemyImage.getY() > 385 && enemyImage.getX() == 190){
                 y = y - 10;
 
             }
-            if(enemyImage.getY() <= 400 && enemyImage.getX() <= 390){
+            if(enemyImage.getY() == 380 && enemyImage.getX() <= 390){
                 y = y;
                 x = x + 10;
             }
-            if(enemyImage.getY() <= 400 && enemyImage.getY() > 200 && enemyImage.getX() == 400){
+            if(enemyImage.getY() <= 385 && enemyImage.getY() > 260 && enemyImage.getX() == 400){
                 y = y - 10;
                 x = x;
             }
-            if(enemyImage.getY() <= 400 && enemyImage.getY() > 200 && enemyImage.getX() == 400){
+            if(enemyImage.getY() == 260 && enemyImage.getX() <= 400 && enemyImage.getX() > 190){
+                y = y;
+                x = x - 10;
+            }
+            if(enemyImage.getY() <= 260 && enemyImage.getY() > 150 && enemyImage.getX() == 190){
                 y = y - 10;
                 x = x;
+            }
+            if(enemyImage.getY() == 150 && enemyImage.getX() <= 600){
+                y = y;
+                x = x + 10;
             }
             System.out.println("here");
             enemyImage.setBounds(new Rectangle(x,y,100,100));
