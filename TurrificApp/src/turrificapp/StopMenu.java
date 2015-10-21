@@ -10,10 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-/**
- *
- * @author markymark1346
- */
 public class StopMenu extends JPanel implements ActionListener  {
     private JButton quitButton;
     private JButton mainMenuButton;
@@ -38,11 +34,6 @@ public class StopMenu extends JPanel implements ActionListener  {
         this.add(mainMenuButton);
         this.add(resumeButton);
         this.setVisible(true);
-    }
-    
-    public void goToMenu(){ // This is literally actionPerformed
-        //creates startMenu
-        
     }
 
     public void actionPerformed(ActionEvent evt) {

@@ -4,10 +4,6 @@
  */
 package turrificapp;
 
-/**
- *
- * @author markymark1346
- */
 public class User {
     private String name;
     private int score;
