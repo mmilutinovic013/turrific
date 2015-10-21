@@ -120,9 +120,5 @@ public class StartMenu extends JPanel implements ActionListener {
             //Update Difficulty
             System.out.println("hard");
         }
-        
-    }
-    
-    
-    
+    } 
 }

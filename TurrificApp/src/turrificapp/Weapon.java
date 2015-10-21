@@ -16,8 +16,8 @@ public class Weapon {
     
     private String weaponName;
     private int weaponCost;
-    private int weaponRange;
     private int weaponDamage;
+    private int weaponRateOfFire;
     private JLabel icon;
     private boolean weaponSelected;
     private int xCoordinate;
@@ -25,29 +25,10 @@ public class Weapon {
     
     public Weapon(int choice/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
         
-        //Weapon stats
-        //Pencil(1): Range 3, Damage 3, Cost 15
-        //Stapler(2): Range 1, Damge 5, Cost 20
-        //RubberBand(3): Range 5, Damage 1, Cost 10
-        /*int[] weaponArray;
-        weaponArray = new int[12];
-        weaponArray[0] = 1;
-        weaponArray[1] = 3;
-        weaponArray[2] = 3;
-        weaponArray[3] = 15;
-        weaponArray[4] = 2;
-        weaponArray[5] = 1;
-        weaponArray[6] = 5;
-        weaponArray[7] = 20;
-        weaponArray[8] = 3;
-        weaponArray[9] = 5;
-        weaponArray[10] = 1;
-        weaponArray[11] = 10;*/
-        
         if(choice == 1){
             weaponName = "Pencil";
             weaponCost = 15;
-            weaponRange = 3;
+            weaponRateOfFire = 3;
             weaponDamage = 3;
             weaponSelected = true;
             icon = new JLabel("images/pencil.png");
@@ -55,7 +36,7 @@ public class Weapon {
         else if(choice == 2){
             weaponName = "Stapler";
             weaponCost = 20;
-            weaponRange = 1;
+            weaponRateOfFire = 1;
             weaponDamage = 5;
             weaponSelected = true;
             icon = new JLabel("images/stapler.png");
@@ -63,12 +44,11 @@ public class Weapon {
         else if(choice == 3){
             weaponName = "RubberBand";
             weaponCost = 10;
-            weaponRange = 5;
+            weaponRateOfFire = 5;
             weaponDamage = 1;
             weaponSelected = true;
             icon = new JLabel("images/rubberband.png");
         }
-        
         
     }
     public String getWeaponName(){
@@ -77,8 +57,8 @@ public class Weapon {
     public int getWeaponCost(){
         return weaponCost;
     }
-    public int getWeaponRange(){
-        return weaponRange;
+    public int getWeaponRateIfFire(){
+        return weaponRateOfFire;
     }
     public int getWeaponDamage(){
         return weaponDamage;
@@ -89,15 +69,23 @@ public class Weapon {
     public JLabel getIcon(){
         return icon;
     }
+    public int getXCoordinate(){
+        return xCoordinate;
+    }
+    public int getYCoordinate(){
+        return yCoordinate;
+    }
+    
     
     
     public void fire(){
         //creates projectile
         int damage = getWeaponDamage(); 
         int cost = getWeaponCost(); 
-        int range = getWeaponRange(); 
+        int rateOfFire = getWeaponRateIfFire(); 
         boolean selected = getWeaponSelected(); 
-        //Projectile projectile = new Projectile(damage, );
+        Projectile projectile = new Projectile(damage, rateOfFire, xCoordinate, yCoordinate);
+
     }
     
 }
