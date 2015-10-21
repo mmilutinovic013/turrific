@@ -30,7 +30,7 @@ public class Board extends JFrame implements ActionListener {
     private User user;
     private JButton startWaveButton;
     private JButton weaponSelectButton[]; // need to create 3 default weapons in the class...
-    private JTextArea userInformation;
+    //private JTextArea userInformation;
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
     private JButton pauseMenuButton;
@@ -192,7 +192,8 @@ public class Board extends JFrame implements ActionListener {
         //
         desk = newDesk;
         enemy = newEnemies;
-        userInformation = newUserInformation;
+        //userInformation = newUserInformation;
+        userinfo = newUserInformation;
         
         display();
     }
