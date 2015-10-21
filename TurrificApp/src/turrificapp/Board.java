@@ -40,6 +40,7 @@ public class Board extends JFrame implements ActionListener {
     private JButton currentLayoutButton;
     private Timer t1;
     private ArrayList <Weapon> weaponsArray;
+    private ArrayList <JButton> deskButtonArray;
     int x =190;
     int y =500;
     JLabel enemyImage;
@@ -75,6 +76,7 @@ public class Board extends JFrame implements ActionListener {
         enemyImage.setBounds(new Rectangle(x,y,100,100));
         gameboardPanel.add(enemyImage);
         weaponsArray = new ArrayList();
+        deskButtonArray = new ArrayList();
         
         weaponSelectButton = new JButton[0]; // Weapon 0 is the default? 
         //weaponSelectButton.addActionListener(this); Figure this shit out...
@@ -142,6 +144,7 @@ public class Board extends JFrame implements ActionListener {
                     test.setIcon(new ImageIcon("images/desk.png")); //testing
                     map.add(test);
                     test.addActionListener(this);
+                    deskButtonArray.add(test);
                     //test.add(deskImage); // set test coords
                     // Get the JButton that was selected
                     // 
@@ -184,14 +187,14 @@ public class Board extends JFrame implements ActionListener {
         }
         else if(obj == t1){
             
-            if(weaponsArray.size() < 0){
+            if(weaponsArray.size() > 0){
                 for(int i = 0; i < weaponsArray.size(); i++){
                     weaponsArray.get(i).fire();
                 }
             }
             
             if(enemyImage.getY() <= 500 && enemyImage.getY() > 385 && enemyImage.getX() == 190){
-                y = y - 10;
+            y = y - 10;
 
             }
             if(enemyImage.getY() == 380 && enemyImage.getX() <= 390){
@@ -214,11 +217,10 @@ public class Board extends JFrame implements ActionListener {
                 y = y;
                 x = x + 10;
             }
-            System.out.println("here");
             enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
         }
-        else{
+        else if (deskButtonArray.contains(obj)){
             JOptionPane optionPane = new JOptionPane();
             optionPane.setVisible(true);
             Object[] options = {"select pencil",

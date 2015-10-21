@@ -20,8 +20,8 @@ public class Weapon {
     private int weaponRateOfFire;
     private JLabel icon;
     private boolean weaponSelected;
-    private int xCoordinate;
-    private int yCoordinate;
+    private int xCoordinate = 100;
+    private int yCoordinate = 100;
     private Board board;
     
     public Weapon(int choice, Board newBoard/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
@@ -81,6 +81,7 @@ public class Weapon {
     
     public void fire(){
         //creates projectile
+        System.out.println("fire");
         int damage = getWeaponDamage(); 
         int cost = getWeaponCost(); 
         int rateOfFire = getWeaponRateIfFire(); 

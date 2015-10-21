@@ -7,6 +7,9 @@ package turrificapp;
 
 import javax.swing.ImageIcon;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
@@ -14,7 +17,7 @@ import javax.swing.Timer;
  *
  * @author bkaul_000
  */
-public class Projectile {
+public class Projectile extends JLabel implements ActionListener {
     
     private int damage; // is this the damage?
     private ImageIcon icon;
@@ -32,10 +35,14 @@ public class Projectile {
         rateOfFire = newRateOfFire;
         xCoordinate = startXCoordinate;
         yCoordinate = startYCoordinate;
-        timer = new Timer(100, newBoard);
+        timer = new Timer(50, newBoard);
+        timer.addActionListener(this);
         projectileImage = new JLabel(new ImageIcon("images/enemy.png"));
         projectileImage.setBounds(new Rectangle(xCoordinate,yCoordinate,50,50));
         newBoard.add(projectileImage);
+        projectileImage.setVisible(true);
+        System.out.println("hi");
+        this.move();
     }
     
     public void setup(){
@@ -43,7 +50,20 @@ public class Projectile {
     }
     
     public void move(){
-        
+       timer.start();
+       System.out.println("here");
+       yCoordinate = yCoordinate - 10;
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object obj = e.getSource();
+        if(obj == timer){
+            xCoordinate = xCoordinate - 10;
+            projectileImage.setBounds(new Rectangle(xCoordinate, yCoordinate,50,50));
+
+        }
     }
     
 }
