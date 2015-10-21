@@ -16,6 +16,9 @@ public class User {
   
     public User(){
         name = "default";
+        score = 0;
+        money = 30;
+        health = 100;
     }
     
     public void increaseScore(int newScoreIncrease){
