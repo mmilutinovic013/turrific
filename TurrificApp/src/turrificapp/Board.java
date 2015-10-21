@@ -230,6 +230,7 @@ public class Board extends JFrame implements ActionListener {
         }
         else if(obj == startWaveButton){
             t1.start();
+            userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
         }
         else if(obj == t1){
             
@@ -271,7 +272,7 @@ public class Board extends JFrame implements ActionListener {
                 }
                 user.decreaseHealth(5);
                 x = x + 10; //moves off screen so health is decremented once
-                userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
+                userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                 System.out.println(user.getHealth());
                 
             }
@@ -308,7 +309,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("one");
                         ((JButton)evt.getSource()).setIcon(image1);
                         user.decreaseMoney(15);
-                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
+                        userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(pencil);
@@ -322,7 +323,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("two");
                         ((JButton)evt.getSource()).setIcon(image2);
                         user.decreaseMoney(20);
-                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
+                        userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(stapler);
@@ -336,7 +337,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("three");
                         ((JButton)evt.getSource()).setIcon(image3);
                         user.decreaseMoney(10);
-                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
+                        userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(rubberband);

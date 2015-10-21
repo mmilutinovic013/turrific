@@ -24,12 +24,15 @@ public class StartMenu extends JPanel implements ActionListener {
     private JTextArea scoreList;
     private JTextArea instructions;
     private Board theBoard;
+    public User user;
 
     public StartMenu(Board gameBoard){
         super();
         theBoard = gameBoard;
         this.setSize(800, 600);
         this.setLayout(null);
+        
+        //user = new User();
         
         easyButton = new JButton("Easy");
         easyButton.setBounds(150, 50, 100, 50);
@@ -119,6 +122,9 @@ public class StartMenu extends JPanel implements ActionListener {
         if(obj == hardButton){
             //Update Difficulty
             System.out.println("hard");
+        }
+        if(obj == nameInput){
+            user.setName(nameInput.getText());
         }
     } 
 }

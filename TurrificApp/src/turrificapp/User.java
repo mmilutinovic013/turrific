@@ -21,6 +21,12 @@ public class User {
         health = 100;
     }
     
+    public String getName(){
+        return name;
+    }
+    public void setName(String userName){
+        name = userName;
+    }
     public void increaseScore(int newScoreIncrease){
         score = score + newScoreIncrease;
 
