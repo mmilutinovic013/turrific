@@ -227,8 +227,6 @@ public class Board extends JFrame implements ActionListener {
                 y = y;
                 x = x + 10;
             }
-<<<<<<< .merge_file_AOKxlE
-=======
             
             //enemy disappear and damage to health
             if(enemyImage.getY() == 150 && enemyImage.getX() >= 660){
@@ -240,7 +238,6 @@ public class Board extends JFrame implements ActionListener {
             }
             
             System.out.println("here");
->>>>>>> .merge_file_KU9mwd
             enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
         }
