@@ -1,4 +1,4 @@
-name:
-health:
-score:
-money:
+name: default
+health: 100
+score: 0
+money: 30

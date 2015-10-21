@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -40,9 +42,11 @@ public class Board extends JFrame implements ActionListener {
     private JButton[] deskLayoutArray = new JButton[81]; 
     private JButton currentLayoutButton;
     private JLabel endzone;
+    private JTextArea userinfo;
     private Timer t1;
     private ArrayList <Weapon> weaponsArray;
     private ArrayList <JButton> deskButtonArray;
+    //String userfile;
     int x =190;
     int y =500;
     JLabel enemyImage;
@@ -52,11 +56,14 @@ public class Board extends JFrame implements ActionListener {
     // Someone fix this spacing -- I'm moving onto other things. This should be simple in just  layout change.
     public Board() {
         
+        
         super("Board JFrame");
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         gameboardPanel = new JPanel();
         sidebarPanel = new JPanel();
+        
+        //userfile = "images/user.txt";
         
         mainMenu = new StartMenu(this);
         mainMenu.setVisible(false);
@@ -88,21 +95,32 @@ public class Board extends JFrame implements ActionListener {
         //user information accessible through user.txt file, not sure if this is how you want to
         //run it for the constantly updated userInfo on sidebarPanel. If not it can easily be changed
         //to make it work just for saving and loading user profiles
-        userInformation = new JTextArea();//new JLabel("User Information");
+        /*userInformation = new JTextArea();//new JLabel("User Information");
         userInformation.setSize(200, 100);
         userInformation.setVisible(true);
         userInformation.setBackground(Color.gray);
         userInformation.setEditable(false);
         userInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
         try{
-            FileReader fr = new FileReader("images/user.txt");
+            FileReader fr = new FileReader(userfile);
             BufferedReader br = new BufferedReader(fr);
             userInformation.read(br, "userInformation");
+            br.close();
+            
+            FileWriter fw = new FileWriter(userfile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.close();
         }
         catch(IOException ioe){
             //error handling
-        }
-
+        }*/
+        userinfo = new JTextArea("name: default\r\n" + "health: 100\r\n" + "score: 0\r\n" + "money: 30");
+        userinfo.setSize(200,100);
+        userinfo.setVisible(true);
+        userinfo.setBackground(Color.gray);
+        userinfo.setEditable(false);
+        userinfo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new GridLayout(10,10));
         pencilWeaponImage = new JLabel(new ImageIcon("images/pencil.png"));
@@ -125,7 +143,7 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pauseMenuButton);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
-        sidebarPanel.add(userInformation);
+        sidebarPanel.add(userinfo);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,10)));
         sidebarPanel.add(pencilWeaponImage);
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
@@ -196,6 +214,15 @@ public class Board extends JFrame implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent evt){
+        
+        /*try{
+            FileWriter fw = new FileWriter(userfile);
+            BufferedWriter bw = new BufferedWriter(fw);
+        }
+        catch(IOException ioe){
+            //error handling
+        }*/
+        
         Object obj = evt.getSource();
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
@@ -237,12 +264,15 @@ public class Board extends JFrame implements ActionListener {
             }
             
             //enemy disappear and damage to health
-            if(enemyImage.getY() == 150 && enemyImage.getX() >= 660){
+            if(enemyImage.getY() == 150 && enemyImage.getX() == 660){
                 if(user.getHealth() <= 0){
                     System.exit(0);
                 }
                 user.decreaseHealth(5);
+                x = x + 10; //moves off screen so health is decremented once
+                userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                 System.out.println(user.getHealth());
+                
             }
             
             System.out.println("here");
@@ -277,6 +307,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("one");
                         ((JButton)evt.getSource()).setIcon(image1);
                         user.decreaseMoney(15);
+                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(pencil);
@@ -290,6 +321,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("two");
                         ((JButton)evt.getSource()).setIcon(image2);
                         user.decreaseMoney(20);
+                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(stapler);
@@ -303,6 +335,7 @@ public class Board extends JFrame implements ActionListener {
                         System.out.println("three");
                         ((JButton)evt.getSource()).setIcon(image3);
                         user.decreaseMoney(10);
+                        userinfo.setText("name: default\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(rubberband);
