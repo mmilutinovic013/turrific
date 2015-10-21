@@ -26,20 +26,21 @@ public class Projectile extends JLabel implements ActionListener {
     private int yCoordinate;
     private Timer timer;
     private JLabel projectileImage;
+    private Board board;
 
     
     public Projectile(int newDamage, /*icon,*/ int newRateOfFire, /*bound,*/ int startXCoordinate, int startYCoordinate, Board newBoard){
         
         damage = newDamage;
-        ImageIcon icon = new ImageIcon("images/projectile.png");
+        board = newBoard;
         rateOfFire = newRateOfFire;
         xCoordinate = startXCoordinate;
         yCoordinate = startYCoordinate;
-        timer = new Timer(50, newBoard);
+        timer = new Timer(10000, board);
         timer.addActionListener(this);
         projectileImage = new JLabel(new ImageIcon("images/enemy.png"));
-        projectileImage.setBounds(new Rectangle(xCoordinate,yCoordinate,50,50));
-        newBoard.add(projectileImage);
+        projectileImage.setBounds(new Rectangle(300,300,200,200));
+        board.getGameboardPanel().add(projectileImage);
         projectileImage.setVisible(true);
         System.out.println("hi");
         this.move();
@@ -51,8 +52,8 @@ public class Projectile extends JLabel implements ActionListener {
     
     public void move(){
        timer.start();
-       System.out.println("here");
-       yCoordinate = yCoordinate - 10;
+       //yCoordinate = yCoordinate - 10;
+       //board.getMap().repaint();
 
     }
 
@@ -61,7 +62,9 @@ public class Projectile extends JLabel implements ActionListener {
         Object obj = e.getSource();
         if(obj == timer){
             xCoordinate = xCoordinate - 10;
-            projectileImage.setBounds(new Rectangle(xCoordinate, yCoordinate,50,50));
+            projectileImage.setBounds(new Rectangle(300, 300,200,200));
+            board.getMap().repaint();
+            System.out.println("here");
 
         }
     }

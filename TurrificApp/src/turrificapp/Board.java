@@ -183,8 +183,16 @@ public class Board extends JFrame implements ActionListener {
         return mainMenu;
     }
     
+    public JPanel getGameboardPanel(){
+        return gameboardPanel;
+    }
+    
     public StopMenu getStopMenu(){ // add sets?
         return pauseMenu;
+    }
+    
+     public JLabel getMap(){ // add sets?
+        return map;
     }
     
     public void actionPerformed(ActionEvent evt){
