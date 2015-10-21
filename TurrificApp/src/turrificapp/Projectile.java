@@ -38,7 +38,6 @@ public class Projectile extends JLabel implements ActionListener {
         projectileImage.setBounds(new Rectangle(300,300,200,200));
         board.getGameboardPanel().add(projectileImage);
         projectileImage.setVisible(true);
-        System.out.println("hi");
         this.move();
     }
     
@@ -57,7 +56,6 @@ public class Projectile extends JLabel implements ActionListener {
             xCoordinate = xCoordinate - 10;
             projectileImage.setBounds(new Rectangle(300, 300,200,200));
             board.getMap().repaint();
-            System.out.println("here");
         }
     }
 }

@@ -80,7 +80,6 @@ public class Weapon {
     
     public void fire(){
         //creates projectile
-        System.out.println("fire");
         int damage = getWeaponDamage(); 
         int cost = getWeaponCost(); 
         int rateOfFire = getWeaponRateIfFire(); 
