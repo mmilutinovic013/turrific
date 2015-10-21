@@ -135,11 +135,12 @@ public class Board extends JFrame implements ActionListener {
                 }
                 else{
                     desk = new Desk(i,j); 
-                    JLabel deskImage = desk.deskImageSetup();
-                    JButton test = new JButton(""+ this.getX() +"," + this.getY());
+                    //JLabel deskImage = desk.deskImageSetup();
+                    JButton test = new JButton(/*""+ this.getX() +"," + this.getY()*/);
+                    test.setIcon(new ImageIcon("images/desk.png")); //testing
                     map.add(test);
                     test.addActionListener(this);
-                    test.add(deskImage); // set test coords
+                    //test.add(deskImage); // set test coords
                     // Get the JButton that was selected
                     // 
                 }
@@ -226,18 +227,23 @@ public class Board extends JFrame implements ActionListener {
                     case 0:
                         System.out.println(((JButton)evt.getSource()).toString());
                         //JLabel image = pencilWeaponImage;
-                        ((JButton)evt.getSource()).add(new JLabel(new ImageIcon("images/pencil.png")));
+                        //((JButton)evt.getSource()).add(new JLabel(new ImageIcon("images/pencil.png")));
                         ///map.add(pencilWeaponImage);
+                        ImageIcon image1 = new ImageIcon("images/pencil.png");
+                        System.out.println("one");
+                        ((JButton)evt.getSource()).setIcon(image1);
+                        map.repaint();
                         break;
                     case 1:
-                        JLabel image1 = new JLabel(new ImageIcon("images/pencil.png"));
-                        System.out.println("one");
-                        ((JButton)evt.getSource()).add(image1);
+                        ImageIcon image2 = new ImageIcon("images/stapler.png");
+                        System.out.println("two");
+                        ((JButton)evt.getSource()).setIcon(image2);
                         map.repaint();
                         break;
                     case 2:
-                        JLabel image2 = new JLabel(new ImageIcon("images/rubberband.png"));
-                        System.out.println("two");
+                        ImageIcon image3 = new ImageIcon("images/rubberband.png");
+                        System.out.println("three");
+                        ((JButton)evt.getSource()).setIcon(image3);
                         map.repaint();
                         break;
                 }
