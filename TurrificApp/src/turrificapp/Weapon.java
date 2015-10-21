@@ -22,8 +22,11 @@ public class Weapon {
     private boolean weaponSelected;
     private int xCoordinate;
     private int yCoordinate;
+    private Board board;
     
-    public Weapon(int choice/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
+    public Weapon(int choice, Board newBoard/*String name, int cost, int range, int damage, ImageIcon icon, boolean selected*/){
+        
+        board = newBoard;
         
         if(choice == 1){
             weaponName = "Pencil";
@@ -82,7 +85,7 @@ public class Weapon {
         int cost = getWeaponCost(); 
         int rateOfFire = getWeaponRateIfFire(); 
         boolean selected = getWeaponSelected(); 
-        Projectile projectile = new Projectile(damage, rateOfFire, xCoordinate, yCoordinate);
+        Projectile projectile = new Projectile(damage, rateOfFire, xCoordinate, yCoordinate, board);
 
     }
     
