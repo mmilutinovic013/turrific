@@ -7,12 +7,13 @@ package turrificapp;
 
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /**
  *
  * @author bkaul_000
  */
-public class Enemy {
+public class Enemy extends JPanel {
     
     private int health;
     private int xCoordinate;
@@ -23,6 +24,16 @@ public class Enemy {
     private ImageIcon icon;
     private Rectangle bounds;
     
+    public Enemy(){
+        
+        health = 10;
+        xCoordinate = 0;
+        yCoordinate = 0;
+        speed = 20;
+        damage = 10;
+        icon = new ImageIcon("images/enemy.png");
+        visible = true;  
+    }
     public Enemy(int startHealth, int startXCoordinate, int startYCoordinate, int startSpeed, int startDamage, boolean startVisible /*bounds:rectangle*/){
         
         health = startHealth;
@@ -30,7 +41,7 @@ public class Enemy {
         yCoordinate = startYCoordinate;
         speed = startSpeed;
         damage = startDamage;
-        ImageIcon icon = new ImageIcon("images/enemy.png");
+        icon = new ImageIcon("images/enemy.png");
         visible = startVisible;  
     }
     /*
@@ -53,16 +64,24 @@ public class Enemy {
     public void setYCoordinate(){
         
     }
+    * 
+    * public JLabel getEnemyGraphic(){
+        return;
+    }
     
     public void getYCoordinate(){
         
     }
     */ //Don't know if these methods are necessary
     
+    public JLabel getEnemyImage(){
+        return new JLabel(icon);
+    }
+    
     public void takeDamage(/*Projectile P*/){
         
     }
-    
+        
     public void move(){
         
     }
