@@ -76,8 +76,6 @@ public class Weapon {
         return yCoordinate;
     }
     
-    
-    
     public void fire(){
         //creates projectile
         int damage = getWeaponDamage(); 

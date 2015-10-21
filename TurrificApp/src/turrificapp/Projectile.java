@@ -14,18 +14,17 @@ import java.awt.Rectangle;
  */
 public class Projectile {
     
-    private int attack; // is this the damage?
+    private int damage; // is this the damage?
     private ImageIcon icon;
-    private int speed;
+    private int rateOfFire;
     private int xCoordinate;
     private int yCoordinate;
     
-    public Projectile(int startAttack, /*icon,*/ int startSpeed, /*bound,*/ int startXCoordinate, int startYCoordinate){
+    public Projectile(int newDamage, /*icon,*/ int newRateOfFire, /*bound,*/ int startXCoordinate, int startYCoordinate){
         
-        attack = startAttack;
+        damage = newDamage;
         ImageIcon icon = new ImageIcon("images/projectile.png");
-        speed = startSpeed;
-        //bound
+        rateOfFire = newRateOfFire;
         xCoordinate = startXCoordinate;
         yCoordinate = startYCoordinate;
     }
