@@ -1,24 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package turrificapp;
 
 import java.awt.*;
 import java.awt.event.*;
+/*
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+*/
 import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.Rectangle;
 
-/**
- *
- * @author markymark1346
- */
 public class Board extends JFrame implements ActionListener {
     
     //TODO: We need Desk and Enemy baefore we can do Board
@@ -30,7 +24,6 @@ public class Board extends JFrame implements ActionListener {
     private User user;
     private JButton startWaveButton;
     private JButton weaponSelectButton[]; // need to create 3 default weapons in the class...
-    //private JTextArea userInformation;
     private StartMenu mainMenu;
     private StopMenu pauseMenu;
     private JButton pauseMenuButton;
@@ -46,28 +39,29 @@ public class Board extends JFrame implements ActionListener {
     private Timer t1;
     private ArrayList <Weapon> weaponsArray;
     private ArrayList <JButton> deskButtonArray;
-    //String userfile;
+
     int x =190;
     int y =500;
+    
     JLabel enemyImage;
 
     int boardSize = 10;
     
-    // Someone fix this spacing -- I'm moving onto other things. This should be simple in just  layout change.
+    // FIXED: Someone fix this spacing -- I'm moving onto other things. This should be simple in just  layout change.
     public Board() {
         
-        
+        //setting up board layout
         super("Board JFrame");
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         gameboardPanel = new JPanel();
         sidebarPanel = new JPanel();
         
-        //userfile = "images/user.txt";
-        
+        //start menu with options
         mainMenu = new StartMenu(this);
         mainMenu.setVisible(false);
         
+        //pause menu with quite resume options buttons
         pauseMenu = new StopMenu(this);
         pauseMenu.setVisible(false);
         
@@ -92,28 +86,11 @@ public class Board extends JFrame implements ActionListener {
         //enemy = new Enemy[10]; // verify that this is correct... base this number off of difficulty
         user = new User();
        
-        //user information accessible through user.txt file, not sure if this is how you want to
+        //SCRAPPED: user information accessible through user.txt file, not sure if this is how you want to
         //run it for the constantly updated userInfo on sidebarPanel. If not it can easily be changed
         //to make it work just for saving and loading user profiles
-        /*userInformation = new JTextArea();//new JLabel("User Information");
-        userInformation.setSize(200, 100);
-        userInformation.setVisible(true);
-        userInformation.setBackground(Color.gray);
-        userInformation.setEditable(false);
-        userInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
-        try{
-            FileReader fr = new FileReader(userfile);
-            BufferedReader br = new BufferedReader(fr);
-            userInformation.read(br, "userInformation");
-            br.close();
-            
-            FileWriter fw = new FileWriter(userfile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.close();
-        }
-        catch(IOException ioe){
-            //error handling
-        }*/
+        
+        //User information display on sidebar
         userinfo = new JTextArea("name: default\r\n" + "health: 100\r\n" + "score: 0\r\n" + "money: 30");
         userinfo.setSize(200,100);
         userinfo.setVisible(true);
@@ -121,6 +98,7 @@ public class Board extends JFrame implements ActionListener {
         userinfo.setEditable(false);
         userinfo.setAlignmentX(Component.CENTER_ALIGNMENT);
         
+        //map on board, weapon images
         map = new JLabel(new ImageIcon("images/board.png"));
         map.setLayout(new GridLayout(10,10));
         pencilWeaponImage = new JLabel(new ImageIcon("images/pencil.png"));
@@ -130,12 +108,14 @@ public class Board extends JFrame implements ActionListener {
         rubberbandWeaponImage = new JLabel(new ImageIcon("images/rubberband.png"));
         rubberbandWeaponImage.setAlignmentX(Component.CENTER_ALIGNMENT);
         
+        //game board with map overlay
         gameboardPanel.setLayout(new BorderLayout());
         gameboardPanel.setSize(600, 600);
         gameboardPanel.add(pauseMenu, BorderLayout.CENTER);
         gameboardPanel.add(mainMenu, BorderLayout.CENTER);
         gameboardPanel.add(map, BorderLayout.CENTER);
 
+        //setting up sidebar
         sidebarPanel.setLayout(new BoxLayout(sidebarPanel, BoxLayout.PAGE_AXIS));
         sidebarPanel.setSize(200, 800);
         sidebarPanel.setBackground(Color.gray);
@@ -151,6 +131,7 @@ public class Board extends JFrame implements ActionListener {
         sidebarPanel.add(Box.createRigidArea(new Dimension(0,50)));
         sidebarPanel.add(rubberbandWeaponImage);
 
+        //populating board with desks
         for(int i = 0; i < boardSize; i++){
             for(int j = 0; j < boardSize; j++){
                 if((i == 3 && j == 3) || (i == 3 && j == 4)|| (i == 3 && j == 5)|| (i == 3 && j == 6)|| (i == 3 && j == 7)|| (i == 3 && j == 8)|| (i == 3 && j == 9)|| (i == 3 && j == 10)|| (i == 4 && j == 3)|| (i == 5 && j == 3)|| (i == 5 && j == 4)|| (i == 5 && j == 5)|| (i == 5 && j == 6)|| (i == 6 && j == 6)|| (i == 7 && j == 3)|| (i == 7 && j == 4)|| (i == 7 && j == 5)|| (i == 7 && j == 6)|| (i == 8 && j == 3)|| (i == 9 && j == 3)/*|| (i == 10 && j == 3)*/){
@@ -158,6 +139,7 @@ public class Board extends JFrame implements ActionListener {
                     map.add(new JLabel()); // We add a fake JLabel so it skips a space...lol GridLayout
                 }
                 else if(i == 10 && j == 3){
+                    //endzone where enemies cross
                     endzone = new JLabel();
                     endzone.setVisible(true);
                     endzone.setSize(60,60);
@@ -166,9 +148,9 @@ public class Board extends JFrame implements ActionListener {
                     map.add(endzone);
                 }
                 else{
-                    desk = new Desk(i,j); 
-                    //JLabel deskImage = desk.deskImageSetup();
-                    JButton test = new JButton(/*""+ this.getX() +"," + this.getY()*/);
+                    //populate with actual desk
+                    desk = new Desk(i,j); ;
+                    JButton test = new JButton();
                     test.setIcon(new ImageIcon("images/desk.png")); //testing
                     map.add(test);
                     test.addActionListener(this);
@@ -192,7 +174,6 @@ public class Board extends JFrame implements ActionListener {
         //
         desk = newDesk;
         enemy = newEnemies;
-        //userInformation = newUserInformation;
         userinfo = newUserInformation;
         
         display();
@@ -216,14 +197,7 @@ public class Board extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent evt){
         
-        /*try{
-            FileWriter fw = new FileWriter(userfile);
-            BufferedWriter bw = new BufferedWriter(fw);
-        }
-        catch(IOException ioe){
-            //error handling
-        }*/
-        
+        //action events
         Object obj = evt.getSource();
         if(obj == pauseMenuButton){
             pauseMenu.setVisible(true);
@@ -232,7 +206,7 @@ public class Board extends JFrame implements ActionListener {
             t1.start();
             userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
         }
-        else if(obj == t1){
+        else if(obj == t1){ //TIMER THAT RUNS EVERYTHING
             
             if(weaponsArray.size() > 0){
                 for(int i = 0; i < weaponsArray.size(); i++){
@@ -240,6 +214,7 @@ public class Board extends JFrame implements ActionListener {
                 }
             }
             
+            //movement of enemies on path
             if(enemyImage.getY() <= 500 && enemyImage.getY() > 385 && enemyImage.getX() == 190){
             y = y - 10;
 
@@ -270,7 +245,7 @@ public class Board extends JFrame implements ActionListener {
                 if(user.getHealth() <= 0){
                     System.exit(0);
                 }
-                user.decreaseHealth(5);
+                user.decreaseHealth(5); //decrement health and adjust user information
                 x = x + 10; //moves off screen so health is decremented once
                 userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                 System.out.println(user.getHealth());
@@ -281,7 +256,7 @@ public class Board extends JFrame implements ActionListener {
             enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
         }
-        else if (deskButtonArray.contains(obj)){
+        else if (deskButtonArray.contains(obj)){ //placing weapons on the board
             JOptionPane optionPane = new JOptionPane();
             optionPane.setVisible(true);
             Object[] options = {"select pencil",
@@ -297,24 +272,20 @@ public class Board extends JFrame implements ActionListener {
                 
                 switch(selection){
                     case 0:
-                        //System.out.println(((JButton)evt.getSource()).toString());
-                        //JLabel image = pencilWeaponImage;
-                        //((JButton)evt.getSource()).add(new JLabel(new ImageIcon("images/pencil.png")));
-                        ///map.add(pencilWeaponImage);
-                        if((user.getMoney() - 15) < 0){
+                        if((user.getMoney() - 15) < 0){ //makes sure user can afford purchase
                            break; 
                         }
                         Weapon pencil = new Weapon(1, this);
                         ImageIcon image1 = new ImageIcon("images/pencil.png");
                         System.out.println("one");
                         ((JButton)evt.getSource()).setIcon(image1);
-                        user.decreaseMoney(15);
+                        user.decreaseMoney(15); //decrements money and adjusts user information
                         userinfo.setText("name: " + user.getName() + "\r\n" + "health: " + user.getHealth() + "\r\n" + "score: 0\r\n" + "money: " + user.getMoney());
                         System.out.println(user.getMoney());
                         map.repaint();
                         weaponsArray.add(pencil);
                         break;
-                    case 1:
+                    case 1: //next weapon
                         if((user.getMoney() - 20) < 0){
                            break; 
                         }
@@ -328,7 +299,7 @@ public class Board extends JFrame implements ActionListener {
                         map.repaint();
                         weaponsArray.add(stapler);
                         break;
-                    case 2:
+                    case 2: //final weapon
                         if((user.getMoney() - 10) < 0){
                            break; 
                         }
