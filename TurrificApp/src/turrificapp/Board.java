@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.Rectangle;
 
 /**
  *
@@ -38,6 +39,7 @@ public class Board extends JFrame implements ActionListener {
     private JPanel sidebarPanel;
     private JButton[] deskLayoutArray = new JButton[81]; 
     private JButton currentLayoutButton;
+    private JLabel endzone;
     private Timer t1;
     int x =190;
     int y =500;
@@ -129,9 +131,17 @@ public class Board extends JFrame implements ActionListener {
 
         for(int i = 0; i < boardSize; i++){
             for(int j = 0; j < boardSize; j++){
-                if((i == 3 && j == 3) || (i == 3 && j == 4)|| (i == 3 && j == 5)|| (i == 3 && j == 6)|| (i == 3 && j == 7)|| (i == 3 && j == 8)|| (i == 3 && j == 9)|| (i == 3 && j == 10)|| (i == 4 && j == 3)|| (i == 5 && j == 3)|| (i == 5 && j == 4)|| (i == 5 && j == 5)|| (i == 5 && j == 6)|| (i == 6 && j == 6)|| (i == 7 && j == 3)|| (i == 7 && j == 4)|| (i == 7 && j == 5)|| (i == 7 && j == 6)|| (i == 8 && j == 3)|| (i == 9 && j == 3)|| (i == 10 && j == 3)){
+                if((i == 3 && j == 3) || (i == 3 && j == 4)|| (i == 3 && j == 5)|| (i == 3 && j == 6)|| (i == 3 && j == 7)|| (i == 3 && j == 8)|| (i == 3 && j == 9)|| (i == 3 && j == 10)|| (i == 4 && j == 3)|| (i == 5 && j == 3)|| (i == 5 && j == 4)|| (i == 5 && j == 5)|| (i == 5 && j == 6)|| (i == 6 && j == 6)|| (i == 7 && j == 3)|| (i == 7 && j == 4)|| (i == 7 && j == 5)|| (i == 7 && j == 6)|| (i == 8 && j == 3)|| (i == 9 && j == 3)/*|| (i == 10 && j == 3)*/){
                     // Do nothing and sob because this if block is ugly
                     map.add(new JLabel()); // We add a fake JLabel so it skips a space...lol GridLayout
+                }
+                else if(i == 10 && j == 3){
+                    endzone = new JLabel();
+                    endzone.setVisible(true);
+                    endzone.setSize(60,60);
+                    endzone.setBackground(Color.red);
+                    endzone.setLocation(150,550);
+                    map.add(endzone);
                 }
                 else{
                     desk = new Desk(i,j); 
@@ -201,10 +211,20 @@ public class Board extends JFrame implements ActionListener {
                 y = y - 10;
                 x = x;
             }
-            if(enemyImage.getY() == 150 && enemyImage.getX() <= 600){
+            if(enemyImage.getY() == 150 && enemyImage.getX() < 660){
                 y = y;
                 x = x + 10;
             }
+            
+            //enemy disappear and damage to health
+            if(enemyImage.getY() == 150 && enemyImage.getX() >= 660){
+                if(user.getHealth() <= 0){
+                    System.exit(0);
+                }
+                user.decreaseHealth(5);
+                System.out.println(user.getHealth());
+            }
+            
             System.out.println("here");
             enemyImage.setBounds(new Rectangle(x,y,100,100));
             this.repaint();
