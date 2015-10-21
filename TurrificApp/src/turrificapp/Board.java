@@ -225,25 +225,40 @@ public class Board extends JFrame implements ActionListener {
                 
                 switch(selection){
                     case 0:
-                        System.out.println(((JButton)evt.getSource()).toString());
+                        //System.out.println(((JButton)evt.getSource()).toString());
                         //JLabel image = pencilWeaponImage;
                         //((JButton)evt.getSource()).add(new JLabel(new ImageIcon("images/pencil.png")));
                         ///map.add(pencilWeaponImage);
+                        if((user.getMoney() - 15) < 0){
+                           break; 
+                        }
                         ImageIcon image1 = new ImageIcon("images/pencil.png");
                         System.out.println("one");
                         ((JButton)evt.getSource()).setIcon(image1);
+                        user.decreaseMoney(15);
+                        System.out.println(user.getMoney());
                         map.repaint();
                         break;
                     case 1:
+                        if((user.getMoney() - 20) < 0){
+                           break; 
+                        }
                         ImageIcon image2 = new ImageIcon("images/stapler.png");
                         System.out.println("two");
                         ((JButton)evt.getSource()).setIcon(image2);
+                        user.decreaseMoney(20);
+                        System.out.println(user.getMoney());
                         map.repaint();
                         break;
                     case 2:
+                        if((user.getMoney() - 10) < 0){
+                           break; 
+                        }
                         ImageIcon image3 = new ImageIcon("images/rubberband.png");
                         System.out.println("three");
                         ((JButton)evt.getSource()).setIcon(image3);
+                        user.decreaseMoney(10);
+                        System.out.println(user.getMoney());
                         map.repaint();
                         break;
                 }
