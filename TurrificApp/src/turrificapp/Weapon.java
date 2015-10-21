@@ -52,7 +52,6 @@ public class Weapon {
             weaponSelected = true;
             icon = new JLabel("images/rubberband.png");
         }
-        
     }
     public String getWeaponName(){
         return weaponName;
@@ -87,7 +86,6 @@ public class Weapon {
         int rateOfFire = getWeaponRateIfFire(); 
         boolean selected = getWeaponSelected(); 
         Projectile projectile = new Projectile(damage, rateOfFire, xCoordinate, yCoordinate, board);
-
     }
     
 }

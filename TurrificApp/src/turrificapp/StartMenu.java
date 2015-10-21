@@ -31,9 +31,7 @@ public class StartMenu extends JPanel implements ActionListener {
         theBoard = gameBoard;
         this.setSize(800, 600);
         this.setLayout(null);
-        
-        //user = new User();
-        
+                
         easyButton = new JButton("Easy");
         easyButton.setBounds(150, 50, 100, 50);
         easyButton.setBackground(Color.white);

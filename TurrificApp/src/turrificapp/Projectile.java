@@ -13,10 +13,6 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-/**
- *
- * @author bkaul_000
- */
 public class Projectile extends JLabel implements ActionListener {
     
     private int damage; // is this the damage?
@@ -52,9 +48,6 @@ public class Projectile extends JLabel implements ActionListener {
     
     public void move(){
        timer.start();
-       //yCoordinate = yCoordinate - 10;
-       //board.getMap().repaint();
-
     }
 
     @Override
@@ -65,8 +58,6 @@ public class Projectile extends JLabel implements ActionListener {
             projectileImage.setBounds(new Rectangle(300, 300,200,200));
             board.getMap().repaint();
             System.out.println("here");
-
         }
     }
-    
 }

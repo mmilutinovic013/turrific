@@ -9,10 +9,6 @@ import javax.swing.ImageIcon;
 import java.awt.Rectangle;
 import javax.swing.JLabel;
 
-/**
- *
- * @author markymark1346
- */
 public class Desk implements Collidables{
     private int xCoordinate;
     private int yCoordinate;
@@ -46,11 +42,6 @@ public class Desk implements Collidables{
         yCoordinate = newDeskY;
     }
     
-    public void placeWeapon(){
-        // place Weapon based off weapon array... 
-        
-    }
-    
     public JLabel deskImageSetup(){
         return deskImage;
     }
@@ -58,7 +49,6 @@ public class Desk implements Collidables{
     @Override
     public void checkBounds(Desk d, Enemy e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
     }
 
     @Override
